@@ -301,6 +301,18 @@ nav.scrolled {
   padding: 40px 20px;
   max-width: 900px; width: 100%;
 }
+.hero-logo {
+  display: flex; justify-content: center; margin-bottom: 24px;
+}
+.hero-logo img {
+  height: 110px; width: auto;
+  filter: drop-shadow(0 8px 28px rgba(0,0,0,0.45));
+  animation: logoFadeIn 0.8s var(--ease-out) both;
+}
+@keyframes logoFadeIn {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: none; }
+}
 
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
@@ -1094,6 +1106,9 @@ footer {
   <div class="hero-particles" aria-hidden="true" id="particles"></div>
 
   <div class="hero-content">
+    <div class="hero-logo">
+      <img src="images/zaps_logo.png" alt="ZAPS Solutions Inc." width="110" loading="eager">
+    </div>
     <div class="hero-eyebrow">
       <span></span>
       Philippines' Premier Pest Control

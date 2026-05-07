@@ -657,19 +657,23 @@ nav.scrolled {
 .iptmf-step-info span { font-size: 0.8rem; color: var(--ink-muted); }
 
 /* ══════════════════════════════
-   SERVICES — Dark
+   SERVICES — Photo BG
 ══════════════════════════════ */
 #services {
-  background: var(--ink);
   position: relative; overflow: hidden;
+  background-image: url('images/services-bg.jpg');
+  background-size: cover; background-position: center;
+  background-attachment: fixed;
 }
 #services::before {
   content: '';
   position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(0,61,125,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,61,125,0.06) 1px, transparent 1px);
-  background-size: 48px 48px;
+  background: linear-gradient(
+    to bottom,
+    rgba(9,19,37,0.82) 0%,
+    rgba(4,24,60,0.88) 60%,
+    rgba(9,19,37,0.92) 100%
+  );
   pointer-events: none;
 }
 #services .section-title { color: var(--white); }
@@ -1262,7 +1266,7 @@ footer {
       <div class="service-card reveal">
         <div class="service-num" aria-hidden="true">01</div>
         <div class="service-card-tag">General Pest</div>
-        <h3 class="service-card-title">General Pest Solutions</h3>
+        <h3 class="service-card-title"><a href="general-pest.html" style="color:inherit;text-decoration:none;">General Pest Solutions</a></h3>
         <p class="service-card-body">Safe, effective pest control for homes and businesses, focusing on long-term prevention and reliable results.</p>
         <div class="pest-chips" role="list" aria-label="Pests treated">
           <div class="pest-chip" role="listitem">
@@ -1286,7 +1290,7 @@ footer {
             Bed Bugs
           </div>
         </div>
-        <a href="#contact" class="learn-link">Learn More →</a>
+        <a href="general-pest.html" class="learn-link">Learn More →</a>
       </div>
 
       <!-- Card 2 -->

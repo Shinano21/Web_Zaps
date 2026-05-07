@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ZAPS General Pest Solutions — Safe, effective pest control for homes and businesses. Cockroach, Mosquito, Flies, Bed Bugs, and Rodent control.">
+<title>General Pest Solutions – ZAPS Solutions Inc.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white:       #ffffff;
+  --off-white:   #f8f7f4;
+  --ink:         #0d1117;
+  --ink-2:       #1c2530;
+  --ink-muted:   #4a5568;
+  --accent:      #003D7D;
+  --accent-2:    #002d60;
+  --gold:        #d97706;
+  --gold-light:  #fef3c7;
+  --accent-light: #0071BE;
+  --blue-deep:   #0f2d52;
+  --blue-mid:    #1e4a82;
+  --surface:     #f0f4f0;
+  --border:      #e2e8e2;
+  --border-dark: rgba(255,255,255,0.12);
+  --text-on-dark: rgba(255,255,255,0.85);
+  --text-dim:     rgba(255,255,255,0.45);
+  --nav-h:  68px;
+  --r-sm:   8px;
+  --r-md:   14px;
+  --r-lg:   22px;
+  --r-xl:   32px;
+  --max-w:  1220px;
+  --ease-out: cubic-bezier(0.16,1,0.3,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+/* NAV */
+.nav-wrap { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
+nav {
+  height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(16px, 4vw, 48px);
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s ease;
+  position: relative; z-index: 1001;
+}
+nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.09); }
+.nav-brand { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.nav-zaps-logo { display: flex; align-items: center; height: 44px; }
+.nav-zaps-logo img { height: 44px; width: auto; object-fit: contain; }
+.nav-divider { width: 1px; height: 32px; background: var(--border); }
+.nav-pharmcle-logo { display: flex; align-items: center; height: 36px; }
+.nav-pharmcle-logo img { height: 36px; width: auto; object-fit: contain; }
+.nav-links {
+  display: none; align-items: center; gap: 4px;
+  list-style: none;
+}
+.nav-links a {
+  display: inline-flex; align-items: center;
+  padding: 6px 14px; border-radius: 8px;
+  font-size: 0.88rem; font-weight: 500; color: var(--ink-muted);
+  transition: color 0.2s, background 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: 2px; left: 14px; right: 14px;
+  height: 2px; background: var(--accent);
+  transform: scaleX(0); transition: transform 0.25s var(--ease-out);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after,
+.nav-links a.active::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--ink); }
+.nav-cta {
+  background: var(--accent) !important; color: var(--white) !important;
+  padding: 8px 20px !important; border-radius: 8px !important;
+  font-weight: 600 !important; font-size: 0.84rem !important;
+  transition: background 0.2s, transform 0.2s !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--accent-2) !important; transform: translateY(-1px); }
+.mobile-menu-btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  background: none; border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  transition: background 0.2s, border-color 0.2s;
+}
+.mobile-menu-btn:hover { background: var(--surface); border-color: var(--accent); }
+.mobile-menu-btn:active { transform: scale(0.95); }
+.hamburger-icon { display: flex; flex-direction: column; gap: 4px; width: 18px; }
+.hamburger-icon span {
+  display: block; height: 2px; width: 100%;
+  background: var(--ink); border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.mobile-menu-btn[aria-expanded="true"] .hamburger-icon span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.mobile-menu-btn[aria-expanded="true"] .hamburger-icon span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-btn[aria-expanded="true"] .hamburger-icon span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+.nav-drawer {
+  position: fixed; top: var(--nav-h); left: 0; right: 0;
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 16px clamp(16px, 4vw, 48px) 24px;
+  transform: translateY(-110%); transition: transform 0.35s var(--ease-out);
+  z-index: 999; display: flex; flex-direction: column; gap: 4px;
+}
+.nav-drawer.open { transform: translateY(0); }
+.nav-drawer a {
+  padding: 12px 14px; border-radius: var(--r-sm);
+  font-size: 0.95rem; font-weight: 500; color: var(--ink-muted);
+  transition: background 0.15s, color 0.15s;
+}
+.nav-drawer a:hover { background: var(--surface); color: var(--ink); }
+.nav-drawer .drawer-cta {
+  background: var(--accent); color: var(--white) !important;
+  border-radius: var(--r-sm); text-align: center; margin-top: 8px;
+  font-weight: 600;
+}
+.nav-drawer .drawer-cta:hover { background: var(--accent-2); }
+@media (min-width: 900px) {
+  .nav-links { display: flex; }
+  .mobile-menu-btn { display: none !important; }
+  .nav-drawer { display: none !important; }
+}
+@media (max-width: 899px) {
+  .mobile-menu-btn { display: flex !important; }
+  .nav-links { display: none !important; }
+}
+
+/* HERO */
+.services-hero {
+  position: relative;
+  min-height: 480px;
+  display: flex; align-items: center; justify-content: center;
+  padding: calc(var(--nav-h) + 60px) clamp(16px, 4vw, 48px) 80px;
+  text-align: center;
+  overflow: hidden;
+}
+.services-hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('images/services-bg.jpg');
+  background-size: cover; background-position: center;
+  background-repeat: no-repeat;
+}
+.services-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(9,19,37,0.72) 0%,
+    rgba(4,24,60,0.80) 60%,
+    rgba(4,24,60,0.88) 100%
+  );
+}
+.services-hero-content {
+  position: relative; z-index: 2;
+  max-width: 720px; margin: 0 auto;
+}
+.services-hero-brand {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  margin-bottom: 20px;
+}
+.services-hero-brand img { height: 64px; width: auto; filter: brightness(0) invert(1); }
+.services-hero-eyebrow {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #90c4f0;
+  margin-top: 4px;
+}
+.services-hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 800; line-height: 1.1;
+  letter-spacing: -1.5px; color: var(--white);
+  margin-bottom: 20px;
+}
+.services-hero-sub {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7; margin-bottom: 36px;
+  max-width: 560px; margin-left: auto; margin-right: auto;
+}
+.btn-inquire {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: var(--white);
+  padding: 14px 32px; border-radius: var(--r-md);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem; font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  box-shadow: 0 6px 24px rgba(0,61,125,0.4);
+}
+.btn-inquire:hover {
+  background: var(--accent-2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(0,61,125,0.5);
+}
+
+/* SECTION COMMON */
+.section-wrap { padding: clamp(64px, 8vw, 100px) clamp(16px, 4vw, 48px); }
+.container { max-width: var(--max-w); margin: 0 auto; }
+.eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 16px;
+}
+.eyebrow::before {
+  content: ''; width: 24px; height: 2px; background: var(--accent);
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4.5vw, 46px);
+  font-weight: 800; line-height: 1.1;
+  letter-spacing: -1px; color: var(--ink);
+  margin-bottom: 18px;
+}
+.hl { color: var(--accent); }
+.section-body { font-size: 0.96rem; color: var(--ink-muted); line-height: 1.75; max-width: 600px; }
+
+/* IPTMF */
+#iptmf { background: var(--white); }
+.iptmf-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 60px; align-items: center;
+}
+@media (min-width: 900px) {
+  .iptmf-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+}
+.iptmf-diagram img {
+  max-width: 460px; width: 100%; height: auto;
+  filter: drop-shadow(0 10px 40px rgba(0,0,0,0.14));
+  margin: 0 auto;
+}
+.iptmf-headline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  font-weight: 500; line-height: 1.6;
+  color: var(--ink-2); margin: 14px 0 28px;
+}
+.iptmf-headline strong { font-weight: 800; color: var(--ink); }
+.iptmf-steps { display: flex; flex-direction: column; gap: 12px; }
+.iptmf-step {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 16px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.iptmf-step:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(0,61,125,0.1);
+}
+.iptmf-step-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.85rem; font-weight: 800;
+  color: var(--accent); width: 28px; flex-shrink: 0;
+}
+.iptmf-step-info strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+.iptmf-step-info span { font-size: 0.8rem; color: var(--ink-muted); }
+
+/* PEST DETAILS SECTION */
+#pest-details { background: var(--off-white); }
+.pest-details-head { margin-bottom: 64px; }
+.pest-details-head .section-title { color: var(--ink); }
+
+.pest-row {
+  display: grid; grid-template-columns: 1fr;
+  gap: 40px; align-items: center;
+  margin-bottom: 72px;
+}
+.pest-row:last-child { margin-bottom: 0; }
+@media (min-width: 720px) {
+  .pest-row { grid-template-columns: 1fr 1fr; gap: 60px; }
+  .pest-row.reverse { direction: rtl; }
+  .pest-row.reverse > * { direction: ltr; }
+}
+
+.pest-image {
+  border-radius: var(--r-lg); overflow: hidden;
+  background: var(--blue-deep);
+  min-height: 280px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  box-shadow: 0 16px 48px rgba(0,61,125,0.18);
+}
+.pest-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  min-height: 280px;
+  mix-blend-mode: luminosity;
+  opacity: 0.85;
+}
+.pest-image-icon {
+  width: 100%; min-height: 280px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.25);
+}
+
+.pest-info {}
+.pest-tag {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 10px;
+}
+.pest-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800; line-height: 1.1;
+  letter-spacing: -0.5px; color: var(--ink);
+  margin-bottom: 16px;
+}
+.pest-body {
+  font-size: 0.95rem; color: var(--ink-muted);
+  line-height: 1.8; margin-bottom: 28px;
+}
+.pest-features { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.pest-feature {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 20px; padding: 6px 14px;
+  font-size: 0.78rem; font-weight: 500; color: var(--ink-muted);
+}
+.pest-feature svg { color: var(--accent); flex-shrink: 0; }
+.pest-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: var(--white);
+  padding: 12px 28px; border-radius: var(--r-md);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: background 0.25s, transform 0.2s;
+  box-shadow: 0 4px 16px rgba(0,61,125,0.25);
+}
+.pest-cta:hover { background: var(--accent-2); transform: translateY(-1px); }
+
+/* CONTACT */
+#contact { background: var(--white); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 60px; align-items: start;
+}
+@media (min-width: 900px) { .contact-grid { grid-template-columns: 1fr 1.3fr; } }
+.contact-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800; line-height: 1.1;
+  letter-spacing: -1px; color: var(--ink); margin-bottom: 16px;
+}
+.contact-title .hl { color: var(--accent); }
+.contact-lead { font-size: 0.95rem; color: var(--ink-muted); line-height: 1.75; margin-bottom: 36px; max-width: 440px; }
+.info-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px; }
+.info-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+}
+.info-text strong { display: block; font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; font-weight: 700; }
+.info-text span { font-size: 0.9rem; color: var(--ink-muted); }
+.pcap-badge {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 16px 18px; margin-top: 28px;
+}
+.pcap-badge svg { color: var(--accent); flex-shrink: 0; }
+.pcap-badge-text strong { display: block; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+.pcap-badge-text span { font-size: 0.83rem; color: var(--ink-muted); }
+.contact-form {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--r-xl); padding: clamp(24px, 5vw, 48px);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+}
+.form-title { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--ink); margin-bottom: 28px; letter-spacing: -0.5px; }
+.form-row { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 16px; }
+@media (min-width: 480px) { .form-row { grid-template-columns: 1fr 1fr; } }
+.form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+.form-group label { font-size: 0.73rem; font-weight: 600; letter-spacing: 0.5px; color: var(--ink-muted); text-transform: uppercase; }
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-sm); padding: 12px 14px;
+  color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  min-height: 48px; -webkit-appearance: none; appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--ink-muted); opacity: 0.5; }
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0,61,125,0.1);
+  background: var(--white);
+}
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234a5568' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+  padding-right: 38px; background-color: var(--surface); cursor: pointer;
+}
+.form-group select option { background: var(--white); color: var(--ink); }
+.submit-btn {
+  width: 100%; background: var(--accent); color: var(--white);
+  border: none; padding: 15px; border-radius: var(--r-md);
+  font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  box-shadow: 0 6px 24px rgba(0,61,125,0.3);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 52px; cursor: pointer;
+}
+.submit-btn:hover { background: var(--accent-2); transform: translateY(-1px); box-shadow: 0 10px 32px rgba(0,61,125,0.38); }
+
+/* FOOTER */
+footer { background: var(--ink); padding: clamp(40px, 6vw, 64px) clamp(16px, 4vw, 48px) 24px; }
+.footer-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr;
+  gap: 40px;
+}
+@media (min-width: 640px) { .footer-inner { grid-template-columns: 1.5fr 1fr 1fr; } }
+.footer-zaps { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--white); letter-spacing: -0.5px; margin-bottom: 12px; }
+.footer-zaps span { color: var(--accent); }
+.footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.6; max-width: 280px; }
+.footer-col-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+.footer-links a:hover { color: var(--white); }
+.footer-bottom {
+  max-width: var(--max-w); margin: 40px auto 0;
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: center; justify-content: space-between;
+}
+.footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+.footer-pcap { display: flex; align-items: center; gap: 6px; font-size: 0.7rem; color: rgba(255,255,255,0.3); font-weight: 600; letter-spacing: 1px; }
+.footer-pcap svg { color: var(--accent); }
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <nav aria-label="Main navigation" id="main-nav">
+    <div class="nav-brand">
+      <a href="index.html" class="nav-zaps-logo" aria-label="ZAPS Solutions home">
+        <img src="images/zaps_logo.png" alt="ZAPS Solutions Inc." loading="eager">
+      </a>
+      <div class="nav-divider" aria-hidden="true"></div>
+      <a href="index.html" class="nav-pharmcle-logo" aria-label="Pharmcle">
+        <img src="images/pharmcle-nav.png" alt="Pharmcle" loading="eager">
+      </a>
+    </div>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#services" class="active">Services</a></li>
+      <li><a href="index.html#pharmcle">Product</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" id="menu-btn">
+      <div class="hamburger-icon" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
+  </nav>
+  <nav class="nav-drawer" id="nav-drawer" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About Us</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#pharmcle">Product</a>
+    <a href="index.html#contact" class="drawer-cta">Contact Us</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="services-hero" aria-label="General Pest Solutions Hero">
+  <div class="services-hero-bg" aria-hidden="true"></div>
+  <div class="services-hero-overlay" aria-hidden="true"></div>
+  <div class="services-hero-content">
+    <div class="services-hero-brand">
+      <img src="images/zaps_logo.png" alt="ZAPS Solutions Inc." width="80">
+      <span class="services-hero-eyebrow">Integrated Pest Management</span>
+    </div>
+    <h1 class="services-hero-title">General Pest Solutions</h1>
+    <p class="services-hero-sub">Delivers safe, effective pest control for homes and businesses, focusing on long-term prevention and reliable results.</p>
+    <a href="#contact" class="btn-inquire">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Inquire Now
+    </a>
+  </div>
+</section>
+
+<!-- IPTMF CYCLE -->
+<section id="iptmf" class="section-wrap" aria-label="IPTMF Cycle">
+  <div class="container">
+    <div class="iptmf-grid">
+      <div class="iptmf-diagram reveal">
+        <img src="images/iptmf-cycle.png"
+             alt="ZAPS IPTMF Cycle: Identify, Plan, Treat, Monitor, Feedback"
+             loading="lazy" width="460" height="460">
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="eyebrow">Our Methodology</div>
+        <h2 class="section-title">Tailored <span class="hl">Pest Management</span> Solutions</h2>
+        <p class="iptmf-headline">
+          Delivering tailored, <strong>EFFECTIVE PEST MANAGEMENT</strong>
+          through continuous identification, planning, treatment, monitoring, and improvement.
+        </p>
+        <div class="iptmf-steps">
+          <div class="iptmf-step">
+            <div class="iptmf-step-num">01</div>
+            <div class="iptmf-step-info"><strong>Identify</strong><span>Diagnose the problem, Root Cause, Site Assessment</span></div>
+          </div>
+          <div class="iptmf-step">
+            <div class="iptmf-step-num">02</div>
+            <div class="iptmf-step-info"><strong>Plan</strong><span>Corrective Action, Continuous Improvement Plan, Additional Recommendation</span></div>
+          </div>
+          <div class="iptmf-step">
+            <div class="iptmf-step-num">03</div>
+            <div class="iptmf-step-info"><strong>Treat</strong><span>Strategic &amp; effective Treatment, Proactive Approach</span></div>
+          </div>
+          <div class="iptmf-step">
+            <div class="iptmf-step-num">04</div>
+            <div class="iptmf-step-info"><strong>Monitor</strong><span>Consistent reports &amp; Updates, Monitor &amp; Document Results</span></div>
+          </div>
+          <div class="iptmf-step">
+            <div class="iptmf-step-num">05</div>
+            <div class="iptmf-step-info"><strong>Feedback</strong><span>Client engagement &amp; feedback for continuous service improvement</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEST DETAILS -->
+<section id="pest-details" class="section-wrap" aria-label="General Pest Solutions Details">
+  <div class="container">
+    <div class="pest-details-head reveal">
+      <div class="eyebrow">What We Treat</div>
+      <h2 class="section-title">ZAPS General Pest <span class="hl">Solutions</span></h2>
+    </div>
+
+    <!-- Cockroach Control -->
+    <div class="pest-row">
+      <div class="pest-image reveal">
+        <img src="images/3.jpg" alt="Cockroach Control" loading="lazy">
+      </div>
+      <div class="pest-info reveal reveal-delay-1">
+        <div class="pest-tag">General Pest</div>
+        <h3 class="pest-title">Cockroach Control</h3>
+        <p class="pest-body">Protect your home or business from cockroaches with our safe and effective pest management solutions. We provide thorough inspection, targeted treatment, and preventive measures to eliminate infestations and help keep your property clean, healthy, and pest-free.</p>
+        <div class="pest-features">
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Thorough Inspection
+          </span>
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Targeted Treatment
+          </span>
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Preventive Measures
+          </span>
+        </div>
+        <a href="#contact" class="pest-cta">Learn More →</a>
+      </div>
+    </div>
+
+    <!-- Mosquito Control -->
+    <div class="pest-row reverse">
+      <div class="pest-image reveal">
+        <img src="images/4.jpg" alt="Mosquito Control" loading="lazy">
+      </div>
+      <div class="pest-info reveal reveal-delay-1">
+        <div class="pest-tag">General Pest</div>
+        <h3 class="pest-title">Mosquito Control</h3>
+        <p class="pest-body">Conduct a thorough inspection of the entire facility to determine the mosquito level of infestation and identify (potential) breeding sources. Apply a suitable treatment program to eliminate mosquito activity. Continuous monitoring and treatment to eliminate mosquito activity and preventive measures.</p>
+        <div class="pest-features">
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Breeding Source Identification
+          </span>
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Treatment Program
+          </span>
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Continuous Monitoring
+          </span>
+        </div>
+        <a href="#contact" class="pest-cta">Learn More →</a>
+      </div>
+    </div>
+
+    <!-- Flies Control -->
+    <div class="pest-row">
+      <div class="pest-image reveal">
+        <img src="images/5.jpg" alt="Flies Control" loading="lazy">
+      </div>
+      <div class="pest-info reveal reveal-delay-1">
+        <div class="pest-tag">General Pest</div>
+        <h3 class="pest-title">Flies Control</h3>
+        <p class="pest-body">Maintain a clean and hygienic environment with our professional fly control solutions. We provide effective treatments and preventive measures to eliminate flies, reduce breeding areas, and help protect your home or business from contamination and pest-related problems.</p>
+        <div class="pest-features">
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Effective Treatments
+          </span>
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Breeding Area Reduction
+          </span>
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Contamination Prevention
+          </span>
+        </div>
+        <a href="#contact" class="pest-cta">Learn More →</a>
+      </div>
+    </div>
+
+    <!-- Bed Bugs Control -->
+    <div class="pest-row reverse">
+      <div class="pest-image reveal">
+        <img src="images/10.jpg" alt="Bed Bugs Control" loading="lazy">
+      </div>
+      <div class="pest-info reveal reveal-delay-1">
+        <div class="pest-tag">General Pest</div>
+        <h3 class="pest-title">Bed Bugs Control</h3>
+        <p class="pest-body">Protect your home, business, or hospitality property with our professional bed bug control solutions. We provide discreet inspections, safe and effective treatments, and preventive measures to eliminate bed bugs and help maintain a clean, comfortable, and pest-free environment.</p>
+        <div class="pest-features">
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Discreet Inspections
+          </span>
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Safe Treatments
+          </span>
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Hospitality Specialists
+          </span>
+        </div>
+        <a href="#contact" class="pest-cta">Learn More →</a>
+      </div>
+    </div>
+
+    <!-- Rodent Control -->
+    <div class="pest-row">
+      <div class="pest-image reveal" style="background: var(--blue-deep); min-height:280px;">
+        <div class="pest-image-icon">
+          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="13" cy="13" rx="6" ry="5"/><circle cx="18" cy="8" r="3"/><path d="M7 13c-3 0-5 2-5 4"/><path d="M19 13c2 0 3 1 3 3"/></svg>
+        </div>
+      </div>
+      <div class="pest-info reveal reveal-delay-1">
+        <div class="pest-tag">General Pest</div>
+        <h3 class="pest-title">Rodent Control</h3>
+        <p class="pest-body">Keep your property protected with our reliable rodent control solutions. We provide safe and effective treatments to eliminate rats and mice, prevent infestations, and help maintain a clean, healthy, and pest-free environment.</p>
+        <div class="pest-features">
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Elimination of Rats &amp; Mice
+          </span>
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Infestation Prevention
+          </span>
+          <span class="pest-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Property Protection
+          </span>
+        </div>
+        <a href="#contact" class="pest-cta">Learn More →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section-wrap" aria-label="Contact Us">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="eyebrow">Get In Touch</div>
+        <h2 class="contact-title">Contact <span class="hl">Us</span></h2>
+        <p class="contact-lead">Reach out and let us take care of your pest concerns. Get a free inspection today — no obligation.</p>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="info-text"><strong>Phone</strong><span>+63 917 124 4603</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="info-text"><strong>Email</strong><span>customercare@zapssolutions.com.ph</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="info-text"><strong>Address</strong><span>20th Floor, Unit 2007, Capital House 9th Ave. Corner Lane BGC Taguig City, Philippines</span></div>
+        </div>
+        <div class="pcap-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div class="pcap-badge-text">
+            <strong>Member Of</strong>
+            <span>Pest Control Association of the Philippines (PCAP)</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal reveal-delay-1">
+        <h3 class="form-title">Send Us a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-name">Full Name</label>
+            <input id="f-name" type="text" placeholder="Your Full Name" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="f-email">Email</label>
+            <input id="f-email" type="email" placeholder="your@email.com" autocomplete="email">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-phone">Phone Number</label>
+            <input id="f-phone" type="tel" placeholder="+63 XXX XXX XXXX" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="f-pest">Pest Issue</label>
+            <select id="f-pest">
+              <option value="">Select Issue</option>
+              <option>Mosquito</option>
+              <option>Cockroach</option>
+              <option>Rodents</option>
+              <option>Flies</option>
+              <option>Bed Bugs</option>
+              <option>Other Pests</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-address">Address</label>
+          <input id="f-address" type="text" placeholder="Your Complete Address" autocomplete="street-address">
+        </div>
+        <div class="form-group">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" placeholder="Tell us about your pest concern..."></textarea>
+        </div>
+        <button class="submit-btn" type="button">
+          Get Free Inspection
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <div class="footer-zaps"><span>Z</span>APS Solutions Inc.</div>
+      <p class="footer-tagline">Philippines' premier pest control company, backed by Pharmcle Korea's 35+ years of biocide expertise.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#pharmcle">Product</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-links">
+        <a href="mailto:customercare@zapssolutions.com.ph">customercare@zapssolutions.com.ph</a>
+        <a href="tel:+63917-124-4603">+63917-124-4603</a>
+        <a href="https://www.google.com/maps/place/Capital+House/@14.5542424,121.052606,21z">20th Floor, Unit 2007, Capital House 9th Ave. Corner Lane BGC, Taguig City, Philippines</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 ZAPS Solutions Inc. All Rights Reserved.</div>
+    <div class="footer-pcap">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      PCAP Member
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  const nav = document.getElementById('main-nav');
+  const menuBtn = document.getElementById('menu-btn');
+  const drawer = document.getElementById('nav-drawer');
+
+  // Scroll shadow
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  // Mobile menu
+  if (menuBtn && drawer) {
+    menuBtn.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !drawer.contains(e.target)) {
+        drawer.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => obs.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+})();
+</script>
+</body>
+</html>

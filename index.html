@@ -557,23 +557,24 @@ nav.scrolled {
 ══════════════════════════════ */
 #about {
   background: var(--blue-deep);
+  padding: clamp(36px,5vw,56px) 0;
   position: relative; overflow: hidden;
 }
-#about .section-title { color: var(--white); }
-#about .section-body { color: rgba(255,255,255,0.65); }
+#about .section-title { color: var(--white); font-size: clamp(1.4rem,3vw,2rem); }
+#about .section-body { color: rgba(255,255,255,0.65); font-size: 0.84rem; line-height: 1.55; }
 #about .eyebrow { color: #90c4f0; }
 #about .eyebrow::before { background: #90c4f0; }
 
 .about-grid {
   display: grid; grid-template-columns: 1fr;
-  gap: 60px; align-items: center;
+  gap: 32px; align-items: center;
 }
 @media (min-width: 900px) {
-  .about-grid { grid-template-columns: 1fr 1fr; }
+  .about-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
 }
 
 .about-img-wrap {
-  position: relative; height: 380px;
+  position: relative; height: 260px;
 }
 .about-img-main {
   position: absolute; top: 0; left: 0;
@@ -593,33 +594,33 @@ nav.scrolled {
   box-shadow: 0 12px 32px rgba(0,0,0,0.35);
 }
 .est-badge {
-  position: absolute; top: 14px; right: 14px;
-  width: 78px; height: 78px;
+  position: absolute; top: 10px; right: 10px;
+  width: 62px; height: 62px;
   background: var(--accent); border-radius: 50%;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center; z-index: 4;
   box-shadow: 0 8px 24px rgba(0,61,125,0.5);
 }
-.est-badge span:first-child { font-size: 0.5rem; letter-spacing: 2px; font-weight: 600; color: rgba(255,255,255,0.8); }
-.est-badge span:last-child { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--white); }
+.est-badge span:first-child { font-size: 0.44rem; letter-spacing: 2px; font-weight: 600; color: rgba(255,255,255,0.8); }
+.est-badge span:last-child { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 800; color: var(--white); }
 
-.about-text { display: flex; flex-direction: column; gap: 16px; }
+.about-text { display: flex; flex-direction: column; gap: 8px; }
 .about-highlight {
-  display: flex; gap: 14px; align-items: flex-start;
+  display: flex; gap: 12px; align-items: flex-start;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--r-md); padding: 18px 20px;
-  margin-top: 8px;
+  border-radius: var(--r-md); padding: 10px 14px;
+  margin-top: 4px;
 }
 .about-highlight-icon {
-  width: 38px; height: 38px; flex-shrink: 0;
+  width: 30px; height: 30px; flex-shrink: 0;
   background: rgba(0,61,125,0.25); border-radius: var(--r-sm);
   display: flex; align-items: center; justify-content: center;
   color: #90c4f0;
 }
-.about-highlight strong { display: block; color: var(--white); font-size: 0.9rem; margin-bottom: 3px; }
-.about-highlight p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+.about-highlight strong { display: block; color: var(--white); font-size: 0.84rem; margin-bottom: 1px; }
+.about-highlight p { font-size: 0.76rem; color: rgba(255,255,255,0.55); line-height: 1.4; margin: 0; }
 
 /* ══════════════════════════════
    IPTMF — Light section
@@ -898,7 +899,7 @@ nav.scrolled {
 .contact-lead { font-size: 0.95rem; color: var(--ink-muted); line-height: 1.75; margin-bottom: 36px; max-width: 440px; }
 
 .info-item {
-  display: flex; gap: 14px; align-items: flex-start;
+  display: flex; gap: 12px; align-items: flex-start;
   margin-bottom: 20px;
 }
 .info-icon {
@@ -1211,9 +1212,7 @@ footer {
         <div class="eyebrow">Who We Are</div>
         <h2 class="section-title">Your Trusted Pest<br>Management <span class="hl">Partner</span></h2>
 
-        <p class="section-body">Delivering proactive and effective solutions through Integrated Pest Management, disinfection, and pest-proofing services. We help businesses maintain safe, clean, and pest-free environments.</p>
-        <br>
-        <p class="section-body">Building on Pharmcle's legacy of excellence, <strong style="color:#fff">Zaps Solutions Inc. was established in 2023</strong> to deliver reliable, consistent, and effective pest control management services in the Philippines.</p>
+        <p class="section-body">Delivering proactive pest control through Integrated Pest Management, disinfection, and pest-proofing. Backed by Pharmcle Korea's excellence, <strong style="color:#fff">established in 2023</strong> to keep Philippine businesses pest-free.</p>
 
         <div class="about-highlight">
           <div class="about-highlight-icon">

@@ -234,42 +234,42 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .hl{color:var(--accent)}
 
 /* ─── IPTMF ─── */
-#iptmf{background:var(--white);padding:clamp(40px,5vw,64px) clamp(16px,4vw,48px)}
-.iptmf-header{text-align:center;max-width:680px;margin:0 auto 32px}
+#iptmf{
+  background:var(--white);
+  padding:clamp(40px,5vw,64px) clamp(16px,4vw,48px);
+  position:relative;overflow:hidden;
+}
+#iptmf::before{
+  content:'';position:absolute;inset:0;
+  background:url('images/services-detail-bg.jpg') center/cover no-repeat;
+  opacity:0.06;pointer-events:none;
+}
+.iptmf-header{margin-bottom:36px}
 .iptmf-header h2{
   font-family:'Poppins',sans-serif;
-  font-size:clamp(1.4rem,3vw,2rem);font-weight:800;
-  letter-spacing:-0.5px;line-height:1.15;color:var(--ink);margin-bottom:8px;
+  font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;
+  letter-spacing:-0.5px;line-height:1.15;color:var(--ink);margin-bottom:10px;
 }
-.iptmf-header p{font-size:0.88rem;color:var(--ink-muted);line-height:1.6}
+.iptmf-header p{font-size:0.95rem;color:var(--ink-muted);line-height:1.6}
+.iptmf-header p strong{text-decoration:underline;font-weight:700;color:var(--ink)}
 .iptmf-layout{
-  display:grid;grid-template-columns:1fr;gap:36px;align-items:center;
+  display:grid;grid-template-columns:1fr;gap:36px;align-items:center;position:relative;z-index:1;
 }
-@media(min-width:960px){.iptmf-layout{grid-template-columns:320px 1fr;gap:56px}}
+@media(min-width:960px){.iptmf-layout{grid-template-columns:340px 1fr;gap:56px}}
 .iptmf-diagram-wrap{display:flex;justify-content:center}
 .iptmf-diagram-wrap img{
-  max-width:300px;width:100%;height:auto;
+  max-width:320px;width:100%;height:auto;
   filter:drop-shadow(0 10px 32px rgba(0,61,125,0.15));
 }
-.iptmf-steps{display:flex;flex-direction:column;gap:7px}
-.iptmf-step{
-  display:flex;align-items:center;gap:14px;
-  padding:10px 16px;background:var(--surface);
-  border:1px solid var(--border);border-radius:var(--r-md);
-  border-left:3px solid transparent;
-  transition:border-color 0.25s,box-shadow 0.25s,transform 0.25s;
+.iptmf-steps{display:flex;flex-direction:column;gap:18px}
+.iptmf-step{display:flex;align-items:flex-start;gap:12px}
+.iptmf-arrow{flex-shrink:0;margin-top:3px;color:var(--accent)}
+.iptmf-info strong{
+  display:block;font-size:1rem;font-weight:700;
+  color:var(--ink);margin-bottom:3px;letter-spacing:0.2px;
 }
-.iptmf-step:hover{
-  border-left-color:var(--accent);
-  box-shadow:0 4px 16px rgba(0,61,125,0.1);
-  transform:translateX(4px);
-}
-.iptmf-num{
-  font-family:'Poppins',sans-serif;font-size:1rem;font-weight:800;
-  color:var(--accent);opacity:0.4;line-height:1;flex-shrink:0;min-width:28px;
-}
-.iptmf-info strong{display:block;font-size:0.85rem;font-weight:700;color:var(--ink);margin-bottom:1px}
-.iptmf-info span{font-size:0.76rem;color:var(--ink-muted);line-height:1.4}
+.iptmf-info strong .fl{font-size:1.1rem;font-weight:800;color:var(--accent)}
+.iptmf-info span{font-size:0.85rem;color:var(--ink-muted);line-height:1.45}
 
 /* ─── PEST SECTIONS ─── */
 .pest-section{
@@ -497,7 +497,10 @@ footer{
 .reveal-right{opacity:0;transform:translateX(32px);transition:opacity 0.65s var(--ease),transform 0.65s var(--ease)}
 .reveal-right.visible{opacity:1;transform:none}
 .delay-1{transition-delay:0.12s}
-.delay-2{transition-delay:0.24s}
+.delay-2{transition-delay:0.22s}
+.delay-3{transition-delay:0.32s}
+.delay-4{transition-delay:0.42s}
+.delay-5{transition-delay:0.52s}
 </style>
 </head>
 <body>
@@ -601,9 +604,8 @@ footer{
 <section id="iptmf" class="section-wrap" aria-label="IPTMF Cycle">
   <div class="container">
     <div class="iptmf-header reveal">
-      <div class="eyebrow">Our Methodology</div>
-      <h2>Tailored <span class="hl">Pest Management</span> Solutions</h2>
-      <p>Delivering tailored, <strong>EFFECTIVE PEST MANAGEMENT</strong> through continuous identification, planning, treatment, monitoring, and improvement.</p>
+      <h2>Tailored Pest Management Solutions</h2>
+      <p>Delivers tailored, <strong>EFFECTIVE PEST MANAGEMENT</strong> through continuous identification, planning, treatment, monitoring, and improvement.</p>
     </div>
     <div class="iptmf-layout">
       <div class="iptmf-diagram-wrap reveal-left">
@@ -611,24 +613,24 @@ footer{
       </div>
       <div class="iptmf-steps">
         <div class="iptmf-step reveal delay-1">
-          <div class="iptmf-num">01</div>
-          <div class="iptmf-info"><strong>Identify</strong><span>Diagnose the problem, Root Cause, Site Assessment</span></div>
+          <div class="iptmf-arrow"><svg width="26" height="22" viewBox="0 0 26 22" fill="none" aria-hidden="true"><polygon points="0,0 13,11 0,22" fill="#003D7D"/><polygon points="13,0 26,11 13,22" fill="#003D7D" opacity="0.55"/></svg></div>
+          <div class="iptmf-info"><strong><span class="fl">I</span>DENTIFY</strong><span>Diagnose the problem, Root Cause, Site Assessment</span></div>
         </div>
-        <div class="iptmf-step reveal delay-1">
-          <div class="iptmf-num">02</div>
-          <div class="iptmf-info"><strong>Plan</strong><span>Corrective Action, Continuous Improvement Plan, Additional Recommendation</span></div>
+        <div class="iptmf-step reveal delay-2">
+          <div class="iptmf-arrow"><svg width="26" height="22" viewBox="0 0 26 22" fill="none" aria-hidden="true"><polygon points="0,0 13,11 0,22" fill="#003D7D"/><polygon points="13,0 26,11 13,22" fill="#003D7D" opacity="0.55"/></svg></div>
+          <div class="iptmf-info"><strong><span class="fl">P</span>LAN</strong><span>Corrective Action, Continuous Improvement Plan, Additional Recommendation</span></div>
         </div>
-        <div class="iptmf-step reveal delay-1">
-          <div class="iptmf-num">03</div>
-          <div class="iptmf-info"><strong>Treat</strong><span>Strategic &amp; effective Treatment, Proactive Approach</span></div>
+        <div class="iptmf-step reveal delay-3">
+          <div class="iptmf-arrow"><svg width="26" height="22" viewBox="0 0 26 22" fill="none" aria-hidden="true"><polygon points="0,0 13,11 0,22" fill="#003D7D"/><polygon points="13,0 26,11 13,22" fill="#003D7D" opacity="0.55"/></svg></div>
+          <div class="iptmf-info"><strong><span class="fl">T</span>REAT</strong><span>Strategic &amp; effective Treatment, Proactive Approach</span></div>
         </div>
-        <div class="iptmf-step reveal delay-1">
-          <div class="iptmf-num">04</div>
-          <div class="iptmf-info"><strong>Monitor</strong><span>Consistent reports &amp; Updates, Monitor &amp; Document Results</span></div>
+        <div class="iptmf-step reveal delay-4">
+          <div class="iptmf-arrow"><svg width="26" height="22" viewBox="0 0 26 22" fill="none" aria-hidden="true"><polygon points="0,0 13,11 0,22" fill="#003D7D"/><polygon points="13,0 26,11 13,22" fill="#003D7D" opacity="0.55"/></svg></div>
+          <div class="iptmf-info"><strong><span class="fl">M</span>ONITOR</strong><span>Consistent reports &amp; Updates, Monitor &amp; Document Results</span></div>
         </div>
-        <div class="iptmf-step reveal delay-1">
-          <div class="iptmf-num">05</div>
-          <div class="iptmf-info"><strong>Feedback</strong><span>Client engagement &amp; feedback for continuous service improvement</span></div>
+        <div class="iptmf-step reveal delay-5">
+          <div class="iptmf-arrow"><svg width="26" height="22" viewBox="0 0 26 22" fill="none" aria-hidden="true"><polygon points="0,0 13,11 0,22" fill="#003D7D"/><polygon points="13,0 26,11 13,22" fill="#003D7D" opacity="0.55"/></svg></div>
+          <div class="iptmf-info"><strong><span class="fl">F</span>EEDBACK</strong><span>Client engagement &amp; feedback for continuous service improvement</span></div>
         </div>
       </div>
     </div>

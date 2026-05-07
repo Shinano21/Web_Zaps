@@ -146,7 +146,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 }
 .hero-content{position:relative;z-index:2;max-width:760px;margin:0 auto}
 .hero-brand{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:28px}
-.hero-brand img{height:120px;width:auto;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.4))}
+.hero-brand img{height:120px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,0.5))}
 .hero-tag{
   display:inline-flex;align-items:center;gap:8px;
   background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
@@ -237,12 +237,6 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 #iptmf{
   background:var(--white);
   padding:clamp(40px,5vw,64px) clamp(16px,4vw,48px);
-  position:relative;overflow:hidden;
-}
-#iptmf::before{
-  content:'';position:absolute;inset:0;
-  background:url('images/services-detail-bg.jpg') center/cover no-repeat;
-  opacity:0.06;pointer-events:none;
 }
 .iptmf-header{margin-bottom:36px}
 .iptmf-header h2{

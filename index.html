@@ -627,14 +627,8 @@ nav.scrolled {
 #iptmf {
   background: var(--white);
   padding: clamp(28px,4vw,48px) clamp(16px,4vw,48px);
-  position: relative; overflow: hidden;
 }
-#iptmf::before {
-  content: ''; position: absolute; inset: 0;
-  background: url('images/services-detail-bg.jpg') center/cover no-repeat;
-  opacity: 0.06; pointer-events: none;
-}
-.iptmf-header { margin-bottom: 24px; position: relative; z-index: 1; }
+.iptmf-header { margin-bottom: 24px; }
 .iptmf-header h2 {
   font-family: 'Poppins', sans-serif;
   font-size: clamp(1.4rem,3vw,2.2rem); font-weight: 800;
@@ -1439,24 +1433,6 @@ footer {
       </div>
     </div>
 
-    <!-- Reviews -->
-    <div class="reviews-grid" style="margin-top:60px;">
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"ZAPS transformed our warehouse. Professional team, thorough service, zero pests for 8 months running."</p>
-        <div class="review-author">— Operations Manager, Asian Terminals Inc.</div>
-      </div>
-      <div class="review-card reveal reveal-delay-1">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Best pest control service we've tried. Pharmcle products are clearly superior. Highly recommended for hotels."</p>
-        <div class="review-author">— Facilities Head, Seda Hotels</div>
-      </div>
-      <div class="review-card reveal reveal-delay-2">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Reliable, responsive, and results-driven. ZAPS maintains our mall complex with exceptional consistency."</p>
-        <div class="review-author">— Property Manager, Robinsons Malls</div>
-      </div>
-    </div>
   </div>
 </section>
 

@@ -679,7 +679,7 @@ nav.scrolled {
 #services .section-title { color: var(--white); }
 #services .eyebrow { color: #90c4f0; }
 #services .eyebrow::before { background: #90c4f0; }
-#services .section-body { color: rgba(255,255,255,0.5); }
+#services .section-body { color: rgba(255,255,255,0.82); }
 
 .services-head { margin-bottom: 56px; }
 
@@ -695,12 +695,13 @@ nav.scrolled {
 }
 
 .service-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: var(--r-lg); padding: 36px 28px;
   position: relative; overflow: hidden;
   transition: background 0.3s, border-color 0.3s, transform 0.3s;
   cursor: default;
+  backdrop-filter: blur(6px);
 }
 .service-card::before {
   content: '';
@@ -714,7 +715,7 @@ nav.scrolled {
 
 .service-card-tag {
   font-size: 0.65rem; font-weight: 700; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--accent);
+  text-transform: uppercase; color: #90c4f0;
   margin-bottom: 12px;
 }
 .service-card-title {
@@ -724,7 +725,7 @@ nav.scrolled {
   margin-bottom: 12px; letter-spacing: -0.5px;
 }
 .service-card-body {
-  font-size: 0.85rem; color: rgba(255,255,255,0.5);
+  font-size: 0.85rem; color: rgba(255,255,255,0.78);
   line-height: 1.75; margin-bottom: 24px;
 }
 .service-num {
@@ -738,22 +739,22 @@ nav.scrolled {
 .pest-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .pest-chip {
   display: flex; flex-direction: column; align-items: center; gap: 4px;
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
   border-radius: 10px; padding: 10px 12px;
   min-width: 64px; font-size: 0.63rem; font-weight: 500;
-  color: rgba(255,255,255,0.5); text-align: center;
+  color: rgba(255,255,255,0.82); text-align: center;
   transition: background 0.2s, border-color 0.2s, color 0.2s; cursor: default;
 }
-.pest-chip:hover { background: rgba(22,163,74,0.14); border-color: var(--accent); color: #fff; }
-.pest-chip svg { color: rgba(255,255,255,0.6); }
+.pest-chip:hover { background: rgba(0,113,190,0.3); border-color: #90c4f0; color: #fff; }
+.pest-chip svg { color: rgba(255,255,255,0.85); }
 
 .learn-link {
   display: inline-flex; align-items: center; gap: 6px;
-  color: var(--accent); font-size: 0.84rem; font-weight: 600;
-  transition: gap 0.2s;
+  color: #90c4f0; font-size: 0.84rem; font-weight: 600;
+  transition: gap 0.2s, color 0.2s;
   cursor: pointer; position: relative; z-index: 1;
 }
-.learn-link:hover { gap: 10px; }
+.learn-link:hover { gap: 10px; color: #fff; }
 
 /* ══════════════════════════════
    TEAM

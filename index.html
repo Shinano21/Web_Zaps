@@ -657,23 +657,18 @@ nav.scrolled {
 .iptmf-step-info span { font-size: 0.8rem; color: var(--ink-muted); }
 
 /* ══════════════════════════════
-   SERVICES — Photo BG
+   SERVICES — Deep Navy
 ══════════════════════════════ */
 #services {
   position: relative; overflow: hidden;
-  background-image: url('images/services-bg.jpg');
-  background-size: cover; background-position: center;
-  background-attachment: fixed;
+  background: linear-gradient(145deg, #071428 0%, #0b2151 40%, #0d2a6e 70%, #071e50 100%);
 }
 #services::before {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(5,14,30,0.93) 0%,
-    rgba(4,20,52,0.95) 50%,
-    rgba(5,14,30,0.96) 100%
-  );
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(0,91,187,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(0,60,140,0.14) 0%, transparent 50%);
   pointer-events: none;
 }
 #services .section-title { color: #ffffff; }
@@ -793,21 +788,34 @@ nav.scrolled {
 /* ══════════════════════════════
    CLIENTS / SOCIAL PROOF
 ══════════════════════════════ */
-#clients { background: var(--ink); overflow: hidden; }
+#clients {
+  background: linear-gradient(135deg, #020d1f 0%, #001a4d 35%, #0038a8 65%, #001a4d 85%, #020d1f 100%);
+  overflow: hidden;
+  position: relative;
+}
+#clients::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(0,120,255,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(0,60,160,0.25) 0%, transparent 55%);
+  pointer-events: none;
+}
 #clients .section-title { color: var(--white); text-align: center; }
 #clients .eyebrow { justify-content: center; }
 #clients .eyebrow::before { display: none; }
-#clients .eyebrow { color: #90c4f0; }
+#clients .eyebrow { color: #7dc4f8; }
 
-.clients-head { text-align: center; margin-bottom: 48px; }
+.clients-head { text-align: center; margin-bottom: 48px; position: relative; z-index: 1; }
 
 .clients-track-wrap {
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  position: relative; z-index: 1;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 .clients-track {
-  display: flex; gap: 28px;
+  display: flex; gap: 16px;
   animation: trackScroll 22s linear infinite;
   width: max-content;
 }
@@ -816,17 +824,23 @@ nav.scrolled {
 
 .client-logo {
   height: 52px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--r-md); padding: 0 24px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(100,180,255,0.2);
+  border-radius: var(--r-md); padding: 0 28px;
   display: flex; align-items: center; justify-content: center;
   font-family: 'Syne', sans-serif;
   font-size: 0.88rem; font-weight: 700;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.75);
   white-space: nowrap; flex-shrink: 0;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s;
+  backdrop-filter: blur(6px);
 }
-.client-logo:hover { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); }
+.client-logo:hover {
+  background: rgba(0,100,255,0.22);
+  border-color: rgba(100,180,255,0.55);
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(0,120,255,0.3);
+}
 
 /* Reviews / Testimonials */
 .reviews-grid {
@@ -840,15 +854,21 @@ nav.scrolled {
   .reviews-grid { grid-template-columns: repeat(3, 1fr); }
 }
 .review-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(100,180,255,0.18);
   border-radius: var(--r-lg); padding: 28px 24px;
-  transition: border-color 0.3s, transform 0.3s;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative; z-index: 1;
+  backdrop-filter: blur(8px);
 }
-.review-card:hover { border-color: rgba(22,163,74,0.35); transform: translateY(-3px); }
-.review-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 12px; }
-.review-text { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 18px; font-style: italic; }
-.review-author { font-size: 0.78rem; color: rgba(255,255,255,0.35); font-weight: 600; letter-spacing: 0.5px; }
+.review-card:hover {
+  border-color: rgba(100,180,255,0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,80,200,0.25);
+}
+.review-stars { color: #fbbf24; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 12px; }
+.review-text { font-size: 0.88rem; color: rgba(255,255,255,0.82); line-height: 1.75; margin-bottom: 18px; font-style: italic; }
+.review-author { font-size: 0.78rem; color: rgba(160,210,255,0.7); font-weight: 600; letter-spacing: 0.5px; }
 
 /* ══════════════════════════════
    CONTACT — Split layout

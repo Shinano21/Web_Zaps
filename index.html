@@ -670,16 +670,16 @@ nav.scrolled {
   position: absolute; inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(9,19,37,0.82) 0%,
-    rgba(4,24,60,0.88) 60%,
-    rgba(9,19,37,0.92) 100%
+    rgba(5,14,30,0.93) 0%,
+    rgba(4,20,52,0.95) 50%,
+    rgba(5,14,30,0.96) 100%
   );
   pointer-events: none;
 }
-#services .section-title { color: var(--white); }
+#services .section-title { color: #ffffff; }
 #services .eyebrow { color: #90c4f0; }
 #services .eyebrow::before { background: #90c4f0; }
-#services .section-body { color: rgba(255,255,255,0.82); }
+#services .section-body { color: rgba(255,255,255,0.88); }
 
 .services-head { margin-bottom: 56px; }
 
@@ -695,13 +695,13 @@ nav.scrolled {
 }
 
 .service-card {
-  background: rgba(255,255,255,0.09);
-  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.22);
   border-radius: var(--r-lg); padding: 36px 28px;
   position: relative; overflow: hidden;
   transition: background 0.3s, border-color 0.3s, transform 0.3s;
   cursor: default;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
 }
 .service-card::before {
   content: '';
@@ -725,7 +725,7 @@ nav.scrolled {
   margin-bottom: 12px; letter-spacing: -0.5px;
 }
 .service-card-body {
-  font-size: 0.85rem; color: rgba(255,255,255,0.78);
+  font-size: 0.85rem; color: rgba(255,255,255,0.90);
   line-height: 1.75; margin-bottom: 24px;
 }
 .service-num {
@@ -739,14 +739,14 @@ nav.scrolled {
 .pest-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .pest-chip {
   display: flex; flex-direction: column; align-items: center; gap: 4px;
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.28);
   border-radius: 10px; padding: 10px 12px;
-  min-width: 64px; font-size: 0.63rem; font-weight: 500;
-  color: rgba(255,255,255,0.82); text-align: center;
+  min-width: 64px; font-size: 0.63rem; font-weight: 600;
+  color: #ffffff; text-align: center;
   transition: background 0.2s, border-color 0.2s, color 0.2s; cursor: default;
 }
-.pest-chip:hover { background: rgba(0,113,190,0.3); border-color: #90c4f0; color: #fff; }
-.pest-chip svg { color: rgba(255,255,255,0.85); }
+.pest-chip:hover { background: rgba(0,113,190,0.35); border-color: #90c4f0; color: #fff; }
+.pest-chip svg { color: #ffffff; }
 
 .learn-link {
   display: inline-flex; align-items: center; gap: 6px;

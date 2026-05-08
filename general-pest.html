@@ -99,35 +99,104 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .mobile-menu-btn[aria-expanded="true"] .hamburger-icon span:nth-child(2){opacity:0}
 .mobile-menu-btn[aria-expanded="true"] .hamburger-icon span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 .nav-drawer{
-  position: fixed; top: 0; left: 0;
-  height: 100vh; width: min(260px, 78%);
-  background: var(--white); z-index: 1200;
-  padding: calc(var(--nav-h) + 8px) 12px 18px 12px;
-  display: flex; flex-direction: column; gap:6px;
-  overflow-y: auto; transform: translateX(-110%);
-  visibility: hidden; opacity: 0;
-  transition: transform 0.32s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease, visibility 0s linear 0.32s;
-  box-shadow: 8px 0 32px rgba(0,0,0,0.12);
+  position:sticky;top:var(--nav-h);left:0;right:0;
+  background:var(--white);border-bottom:1px solid var(--border);
+  padding:16px clamp(16px,4vw,48px) 24px;
+  display:none;flex-direction:column;gap:4px;
+  z-index:999;
 }
-.nav-drawer.open{ transform: translateX(0); visibility: visible; opacity: 1; transition: transform 0.32s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease, visibility 0s linear 0s; }
-.nav-drawer a{padding:8px 10px;border-radius:calc(var(--r-sm) - 2px);font-size:0.98rem;font-weight:500;color:var(--ink-muted);transition:background 0.15s,color 0.15s}
+.nav-drawer.open{display:flex}
+.nav-drawer a{padding:12px 14px;border-radius:var(--r-sm);font-size:0.95rem;font-weight:500;color:var(--ink-muted);transition:background 0.15s,color 0.15s}
 .nav-drawer a:hover{background:var(--surface);color:var(--ink)}
 .nav-drawer .drawer-cta{background:var(--accent);color:var(--white)!important;border-radius:var(--r-sm);text-align:center;margin-top:8px;font-weight:600}
-
-/* Mobile-only phone icon */
-.mobile-only{display:none}
-.mobile-icon{width:18px;height:18px;margin-right:10px;flex-shrink:0;display:inline-block}
-@media(max-width:899px){.mobile-only{display:inline-flex;align-items:center;gap:8px}}
 @media(min-width:900px){
+  nav{grid-template-columns:1fr auto}
   .nav-links{display:flex}
   .mobile-menu-btn{display:none!important}
-  .nav-drawer{display:none!important}
+  .nav-sidebar,.nav-overlay{display:none!important}
 }
 @media(max-width:899px){
   nav{grid-template-columns:1fr auto}
-  .mobile-menu-btn{display:flex!important}
-  .nav-links{display:none!important}
   .nav-right .nav-cta{display:none}
+  .nav-links{display:none!important}
+  .mobile-menu-btn{display:flex!important}
+}
+
+/* ── Mobile Overlay ── */
+.nav-overlay{
+  position:fixed;inset:0;z-index:1100;
+  background:rgba(5,15,40,0.65);
+  backdrop-filter:blur(3px);
+  opacity:0;pointer-events:none;
+  transition:opacity 0.35s ease;
+}
+.nav-overlay.open{opacity:1;pointer-events:auto}
+
+/* ── Mobile Sidebar ── */
+.nav-sidebar{
+  position:fixed;top:0;right:0;bottom:0;
+  width:min(300px,85vw);
+  background:#0a1f46;
+  z-index:1200;
+  display:flex;flex-direction:column;
+  transform:translateX(100%);visibility:hidden;
+  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),visibility 0s linear 0.35s;
+  box-shadow:-8px 0 48px rgba(0,0,0,0.45);
+  overflow-y:auto;
+}
+.nav-sidebar.open{
+  transform:translateX(0);visibility:visible;
+  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),visibility 0s linear 0s;
+}
+.sidebar-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 20px;border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.sidebar-head img{height:36px;filter:brightness(0) invert(1)}
+.sidebar-close{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(255,255,255,0.08);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,0.7);transition:background 0.2s;
+}
+.sidebar-close:hover{background:rgba(255,255,255,0.15);color:#fff}
+.sidebar-nav{flex:1;padding:12px 10px;display:flex;flex-direction:column;gap:2px}
+.sidebar-nav a{
+  display:flex;align-items:center;gap:14px;
+  padding:11px 12px;border-radius:10px;
+  color:rgba(255,255,255,0.75);font-size:0.9rem;font-weight:500;
+  text-decoration:none;transition:background 0.15s,color 0.15s;
+  min-height:48px;
+}
+.sidebar-nav a:hover,.sidebar-nav a.active{background:rgba(255,255,255,0.08);color:#fff}
+.sidebar-nav .sidebar-icon{
+  width:36px;height:36px;border-radius:9px;flex-shrink:0;
+  background:rgba(0,61,125,0.6);border:1px solid rgba(0,113,190,0.35);
+  display:flex;align-items:center;justify-content:center;
+}
+.sidebar-nav a:hover .sidebar-icon,.sidebar-nav a.active .sidebar-icon{
+  background:rgba(0,97,175,0.7);border-color:rgba(0,151,224,0.5);
+}
+.sidebar-nav .sidebar-icon svg{color:#7dc4f8;width:16px;height:16px}
+.sidebar-foot{
+  padding:16px 20px;border-top:1px solid rgba(255,255,255,0.08);
+}
+.sidebar-foot a{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:#003D7D;color:#fff;padding:13px 20px;
+  border-radius:10px;font-size:0.88rem;font-weight:700;
+  text-decoration:none;transition:background 0.2s;
+}
+.sidebar-foot a:hover{background:#002d60}
+.sidebar-foot-tag,
+.sidebar-tagline{
+  font-size:0.7rem;color:rgba(255,255,255,0.3);
+  text-align:center;margin-top:10px;letter-spacing:0.5px;
+  margin:10px 0 0;
+}
+.sidebar-divider{
+  height:1px;background:rgba(255,255,255,0.08);
+  margin:6px 4px;
 }
 
 /* ─── HERO ─── */
@@ -171,18 +240,18 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
   font-weight:800;line-height:1.05;letter-spacing:-2px;
   color:var(--white);margin:20px 0 24px;
 }
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
 .services-hero-brand img { height: 110px; width: auto; filter: brightness(0) invert(1); }
 .services-hero-eyebrow {
   font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px;
   text-transform: uppercase; color: #90c4f0;
   margin-top: 4px;
-=======
+=========
 .hero-title em{font-style:normal;color:#90c4f0}
 .hero-sub{
   font-size:clamp(1rem,2vw,1.15rem);color:rgba(255,255,255,0.82);
   line-height:1.75;margin-bottom:40px;max-width:580px;margin-left:auto;margin-right:auto;
->>>>>>> main
+>>>>>>>>> Temporary merge branch 2
 }
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
 .btn-primary{
@@ -322,7 +391,17 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .pest-section:hover .pest-visual-img img{transform:scale(1.04)}
 .pest-visual-icon{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  color:rgba(255,255,255,0.18);
+  color:rgba(125,196,248,0.55);
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 45%, rgba(0,61,125,0.6) 0%, transparent 70%),
+    linear-gradient(145deg,rgba(10,31,70,0.9) 0%,rgba(5,15,45,0.95) 100%);
+}
+.pest-visual-icon::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(0deg,rgba(255,255,255,0.025) 0px,rgba(255,255,255,0.025) 1px,transparent 1px,transparent 40px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,0.025) 0px,rgba(255,255,255,0.025) 1px,transparent 1px,transparent 40px);
+  pointer-events:none;
 }
 .pest-visual-num{
   position:absolute;bottom:24px;left:28px;
@@ -482,10 +561,17 @@ footer{
 @media(min-width:640px){
   .footer-inner{grid-template-columns:1.5fr 1fr 1fr;text-align:left}
 }
-.footer-zaps{font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:800;color:var(--white);letter-spacing:-0.5px;margin-bottom:12px}
-.footer-zaps span{color:#7dc4f8}
+.footer-logo{height:52px;width:auto;filter:brightness(0) invert(1);margin-bottom:14px;display:block}
 .footer-tagline{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.6;max-width:280px;margin:0 auto}
 @media(min-width:640px){.footer-tagline{margin:0}}
+.footer-socials{display:flex;gap:8px;margin-top:16px}
+.footer-social-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+  color:rgba(255,255,255,0.7);transition:background 0.2s,color 0.2s;
+}
+.footer-social-btn:hover{background:rgba(255,255,255,0.16);color:#fff}
 .footer-col-title{font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px}
 .footer-links{display:flex;flex-direction:column;gap:10px;align-items:center}
 @media(min-width:640px){.footer-links{align-items:flex-start}}
@@ -551,15 +637,11 @@ footer{
     <a href="index.html#about">About Us</a>
     <a href="index.html#services">Services</a>
     <a href="index.html#pharmcle">Product</a>
-    <a href="tel:+639171244603" class="mobile-phone-link mobile-only" aria-label="Call ZAPS"> 
-      <svg class="mobile-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6.11-6.11A19.79 19.79 0 0 1 3.08 4.18 2 2 0 0 1 5.1 2h3a2 2 0 0 1 2 1.72c.12.84.36 1.66.7 2.41a2 2 0 0 1-.45 2.11L9.91 8.09a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.75.34 1.57.58 2.41.7A2 2 0 0 1 22 16.92z"/></svg>
-      +63 917 124 4603
-    </a>
     <a href="#contact" class="drawer-cta">Contact Us</a>
   </nav>
 </div>
 
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
 <!-- HERO -->
 <section class="services-hero" aria-label="General Pest Solutions Hero">
   <div class="services-hero-bg" aria-hidden="true"></div>
@@ -568,7 +650,7 @@ footer{
     <div class="services-hero-brand">
       <img src="images/zaps_logo.png" alt="ZAPS Solutions Inc." width="110">
       <span class="services-hero-eyebrow">Integrated Pest Management</span>
-=======
+=========
 <!-- ═══ HERO ═══ -->
 <section id="hero" class="hero" aria-label="General Pest Solutions">
   <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
@@ -576,7 +658,7 @@ footer{
   <div class="hero-content">
     <div class="hero-brand">
       <img src="images/zaps_logo.png" alt="ZAPS Solutions Inc." width="120" loading="eager">
->>>>>>> main
+>>>>>>>>> Temporary merge branch 2
     </div>
     <div class="hero-tag">
       <span></span>Integrated Pest Management
@@ -778,9 +860,37 @@ footer{
 <!-- ═══ RODENTS ═══ -->
 <section id="rodents" class="pest-section" aria-label="Rodent Control">
   <div class="pest-inner">
-    <div class="pest-visual reveal-left" style="background:var(--blue-deep)">
+    <div class="pest-visual reveal-left">
       <div class="pest-visual-icon" aria-hidden="true">
-        <svg width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="13" cy="13" rx="6" ry="5"/><circle cx="18" cy="8" r="3"/><path d="M7 13c-3 0-5 2-5 4"/><path d="M19 13c2 0 3 1 3 3"/><circle cx="17.5" cy="7" r="0.5" fill="currentColor"/></svg>
+        <svg width="180" height="180" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Body -->
+          <ellipse cx="32" cy="38" rx="16" ry="11" stroke-width="1.5" fill="rgba(125,196,248,0.08)"/>
+          <!-- Head -->
+          <ellipse cx="44" cy="26" rx="9" ry="8" stroke-width="1.5" fill="rgba(125,196,248,0.08)"/>
+          <!-- Ear left -->
+          <ellipse cx="38" cy="18" rx="4" ry="5" stroke-width="1.2" fill="rgba(125,196,248,0.05)"/>
+          <!-- Ear right -->
+          <ellipse cx="50" cy="17" rx="4" ry="5" stroke-width="1.2" fill="rgba(125,196,248,0.05)"/>
+          <!-- Eye -->
+          <circle cx="48" cy="24" r="1.5" stroke-width="1" fill="rgba(125,196,248,0.4)"/>
+          <circle cx="48.5" cy="23.5" r="0.4" fill="rgba(255,255,255,0.8)"/>
+          <!-- Nose -->
+          <path d="M53 27 Q55 28 53 29" stroke-width="1"/>
+          <!-- Whiskers -->
+          <line x1="53" y1="27" x2="62" y2="25" stroke-width="0.8" stroke-dasharray="1,0"/>
+          <line x1="53" y1="28" x2="62" y2="28" stroke-width="0.8"/>
+          <line x1="53" y1="29" x2="62" y2="31" stroke-width="0.8"/>
+          <!-- Front legs -->
+          <path d="M30 44 Q26 50 22 52" stroke-width="1.5"/>
+          <path d="M35 45 Q35 52 32 54" stroke-width="1.5"/>
+          <!-- Back legs -->
+          <path d="M20 40 Q15 46 12 50" stroke-width="1.5"/>
+          <!-- Tail -->
+          <path d="M16 42 Q8 48 6 44 Q4 40 10 38" stroke-width="1.2" fill="none"/>
+          <!-- Fur detail lines -->
+          <path d="M26 34 Q28 32 30 34" stroke-width="0.7"/>
+          <path d="M32 33 Q34 31 36 33" stroke-width="0.7"/>
+        </svg>
       </div>
       <div class="pest-visual-badge">Rodent Control</div>
       <div class="pest-visual-num">05</div>
@@ -831,7 +941,7 @@ footer{
           <div class="info-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
-          <div class="info-text"><strong>Email</strong><span>customercare@zapssolutions.com.ph</span></div>
+          <div class="info-text"><strong>Email</strong><span>customercare@zapssolutions.ph</span></div>
         </div>
         <div class="info-item">
           <div class="info-icon">
@@ -894,43 +1004,25 @@ footer{
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-zaps"><span>Z</span>APS Solutions Inc.</div>
-      <p class="footer-tagline">Philippines' premier pest control company, backed by Pharmcle Korea's 35+ years of biocide expertise.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Quick Links</div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#about">About Us</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#pharmcle">Product</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Contact</div>
-      <div class="footer-links">
-        <a href="mailto:customercare@zapssolutions.com.ph">customercare@zapssolutions.com.ph</a>
-        <a href="tel:+63917-124-4603">+63917-124-4603</a>
-        <a href="https://www.google.com/maps/place/Capital+House/@14.5542424,121.052606,21z">20th Floor, Unit 2007, Capital House BGC, Taguig City, Philippines</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 ZAPS Solutions Inc. All Rights Reserved.</div>
-    <div class="footer-pcap">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      PCAP Member
-    </div>
-  </div>
-</footer>
+<!-- ═══════ FOOTER ═══════ -->
+<div id="site-footer"></div>
 
 <script>
 (function(){
 'use strict';
+
+/* ── Shared footer loader ── */
+(function loadFooter(){
+  fetch('footer.html')
+    .then(function(r){return r.text();})
+    .then(function(html){
+      var el=document.getElementById('site-footer');
+      if(el) el.outerHTML=html;
+    })
+    .catch(function(){});
+})();
+
+
 
 /* ── Progress bar ── */
 const bar = document.getElementById('progress-bar');
@@ -942,20 +1034,33 @@ function updateProgress(){
 window.addEventListener('scroll', updateProgress, {passive:true});
 
 /* ── Nav ── */
-const nav     = document.getElementById('main-nav');
-const menuBtn = document.getElementById('menu-btn');
-const drawer  = document.getElementById('nav-drawer');
+const nav      = document.getElementById('main-nav');
+const menuBtn  = document.getElementById('menu-btn');
+const sidebar  = document.getElementById('nav-sidebar');
+const overlay  = document.getElementById('nav-overlay');
+const closeBtn = document.getElementById('sidebar-close');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
-if(menuBtn && drawer){
-  menuBtn.addEventListener('click',()=>{
-    const open = drawer.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(open));
-  });
-  document.addEventListener('click',e=>{
-    if(!nav.contains(e.target)&&!drawer.contains(e.target)){
-      drawer.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded','false');
-    }
+if(menuBtn && sidebar && overlay){
+  function openSidebar(){
+    sidebar.classList.add('open');
+    overlay.classList.add('open');
+    menuBtn.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+    if(closeBtn) closeBtn.focus();
+  }
+  function closeSidebar(){
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+    menuBtn.focus();
+  }
+  menuBtn.addEventListener('click', openSidebar);
+  overlay.addEventListener('click', closeSidebar);
+  if(closeBtn) closeBtn.addEventListener('click', closeSidebar);
+  sidebar.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeSidebar));
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape' && sidebar.classList.contains('open')) closeSidebar();
   });
 }
 

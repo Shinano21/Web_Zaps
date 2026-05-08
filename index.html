@@ -1583,7 +1583,7 @@ footer {
           <input type="hidden" name="_captcha"  value="false">
           <input type="hidden" name="_subject"  value="New Pest Control Inquiry — ZAPS Solutions">
           <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next"     value="thankyou.html">
+          <input type="hidden" name="_next"     value="https://shinano21.github.io/Web_Zaps/thankyou.html">
           <!-- Honeypot spam trap: bots fill this, humans don't -->
           <input type="text"   name="_honey"    style="display:none" tabindex="-1" autocomplete="off">
 
@@ -1735,8 +1735,7 @@ footer {
     });
 
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
+      // Validate first — only block submission if there are errors
       let valid = true;
       Object.values(fields).forEach(({ el, err, validate }) => {
         if (!validate(el.value)) { showError(el, err); valid = false; }
@@ -1744,20 +1743,19 @@ footer {
       });
 
       if (!valid) {
+        e.preventDefault(); // stop submission only when invalid
         const firstErr = form.querySelector('.error');
         if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
 
-      // Loading state — prevent double submit
+      // Valid — show loading state then let the form POST naturally to FormSubmit
       btn.disabled = true;
       btn.classList.add('loading');
       btn.querySelector('.btn-text').textContent = 'Sending…';
       const icon = btn.querySelector('.btn-icon');
       if (icon) icon.style.display = 'none';
-
-      // Submit to FormSubmit (server redirects to _next)
-      form.submit();
+      // form submits as POST automatically (no e.preventDefault)
     });
 
     function showError(input, errEl) {

@@ -202,54 +202,56 @@ nav.scrolled {
 /* Mobile drawer */
 .nav-drawer {
   position: fixed;
-  top: 0;
+  top: var(--nav-h);
   left: 0;
-  height: 100vh;
-  width: min(260px, 78%);
+  right: 0;
   background: var(--white);
-  z-index: 1200;
-  padding: calc(var(--nav-h) + 8px) 12px 18px 12px; /* tighter spacing for mobile */
+  border-bottom: 2px solid var(--border);
+  z-index: 998;
+  padding: 8px 16px 16px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 2px;
+  max-height: calc(100vh - var(--nav-h));
   overflow-y: auto;
-  transform: translateX(-110%);
+  transform: translateY(-110%);
   visibility: hidden;
   opacity: 0;
   transition: transform 0.32s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease, visibility 0s linear 0.32s;
-  box-shadow: 8px 0 32px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
 }
 .nav-drawer.open {
-  transform: translateX(0);
+  transform: translateY(0);
   visibility: visible;
   opacity: 1;
   transition: transform 0.32s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease, visibility 0s linear 0s;
 }
 .nav-drawer a {
-  color: var(--ink-muted); font-size: 0.98rem; font-weight: 500;
-  padding: 8px 10px; border-radius: calc(var(--r-sm) - 2px);
+  color: var(--ink-muted); font-size: 1rem; font-weight: 500;
+  padding: 13px 14px; border-radius: var(--r-sm);
   transition: background 0.15s, color 0.15s;
   display: flex; align-items: center; min-height: 48px;
 }
-.nav-drawer a:hover { background: var(--surface); color: var(--ink); }
-.nav-drawer .drawer-cta {
-  background: var(--accent); color: var(--white) !important;
-  justify-content: center; font-weight: 600;
-  margin-top: 8px;
+.sidebar-nav a:hover .sidebar-icon, .sidebar-nav a.active .sidebar-icon {
+  background: rgba(0,97,175,0.7); border-color: rgba(0,151,224,0.5);
+}
+.sidebar-nav .sidebar-icon svg { color: #7dc4f8; width: 16px; height: 16px; }
+.sidebar-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 6px 4px; }
+.sidebar-foot {
+  padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.08);
+}
+.sidebar-foot a {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--accent); color: #fff; padding: 13px 20px;
+  border-radius: 10px; font-size: 0.88rem; font-weight: 700;
+  text-decoration: none; transition: background 0.2s;
 }
 .nav-drawer .drawer-cta:hover { background: var(--accent-2); }
-
-/* Mobile-only small icon styles */
-.mobile-only { display: none; }
-.mobile-icon { width: 18px; height: 18px; margin-right: 10px; flex-shrink: 0; display: inline-block; }
-@media (max-width: 899px) {
-  .mobile-only { display: inline-flex; align-items: center; gap: 8px; }
-}
 
 @media (min-width: 900px) {
   .nav-links { display: flex; }
   .mobile-menu-btn { display: none !important; }
-  .nav-drawer { display: none !important; }
+  .nav-sidebar, .nav-overlay { display: none !important; }
 }
 @media (max-width: 899px) {
   .mobile-menu-btn { display: flex !important; }
@@ -757,8 +759,13 @@ nav.scrolled {
 
 .learn-link {
   display: inline-flex; align-items: center; gap: 6px;
+<<<<<<<<< Temporary merge branch 1
+  color: var(--accent); font-size: 0.84rem; font-weight: 600;
+  transition: gap 0.2s;
+=========
   color: #90c4f0; font-size: 0.8rem; font-weight: 600;
   transition: gap 0.2s, color 0.2s;
+>>>>>>>>> Temporary merge branch 2
   cursor: pointer; position: relative; z-index: 1;
 }
 .learn-link:hover { gap: 10px; color: #fff; }
@@ -1075,14 +1082,19 @@ footer {
   .footer-inner { grid-template-columns: 1.5fr 1fr 1fr; }
 }
 
-.footer-brand-col {}
-.footer-zaps {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.4rem; font-weight: 800;
-  color: var(--white); letter-spacing: -0.5px; margin-bottom: 12px;
+.footer-logo {
+  height: 52px; width: auto; filter: brightness(0) invert(1);
+  margin-bottom: 14px; display: block;
 }
-.footer-zaps span { color: var(--accent); }
 .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.6; max-width: 280px; }
+.footer-socials { display: flex; gap: 8px; margin-top: 16px; }
+.footer-social-btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 8px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7); transition: background 0.2s, color 0.2s;
+}
+.footer-social-btn:hover { background: rgba(255,255,255,0.16); color: #fff; }
 
 .footer-col-title {
   font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
@@ -1143,15 +1155,54 @@ footer {
     </button>
   </nav>
 
-  <nav class="nav-drawer" id="nav-drawer" aria-label="Mobile navigation">
-    <a href="#hero">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#services">Services</a>
-    <a href="#pharmcle">Product</a>
-    <a href="#clients">Clients</a>
-    <a href="#contact" class="drawer-cta">Get Free Inspection</a>
-  </nav>
 </div>
+
+<!-- Mobile overlay -->
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+<!-- Mobile sidebar -->
+<aside class="nav-sidebar" id="nav-sidebar" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="sidebar-head">
+    <img src="images/zaps_logo.png" alt="ZAPS Solutions Inc.">
+    <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="#hero">
+      <div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      Home
+    </a>
+    <a href="#about">
+      <div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+      About Us
+    </a>
+    <a href="#services">
+      <div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+      Services
+    </a>
+    <a href="#pharmcle">
+      <div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      Product
+    </a>
+    <a href="#clients">
+      <div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      Clients
+    </a>
+    <div class="sidebar-divider" aria-hidden="true"></div>
+    <a href="#contact">
+      <div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+      Contact Us
+    </a>
+  </nav>
+  <div class="sidebar-foot">
+    <a href="#contact">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+      Get Free Inspection
+    </a>
+    <div class="sidebar-foot-tag">Philippines' Premier Pest Control</div>
+  </div>
+</aside>
 
 <!-- ═══════ HERO ═══════ -->
 <section id="hero" aria-label="Hero">
@@ -1667,38 +1718,7 @@ footer {
 </section>
 
 <!-- ═══════ FOOTER ═══════ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand-col">
-      <div class="footer-zaps"><span>Z</span>APS Solutions Inc.</div>
-      <p class="footer-tagline">Philippines' premier pest control company, backed by Pharmcle Korea's 35+ years of biocide expertise.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Quick Links</div>
-      <div class="footer-links">
-        <a href="#hero">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#pharmcle">Product</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Contact</div>
-      <div class="footer-links">
-        <a href="mailto:customercare@zapssolutions.com.ph">customercare@zapssolutions.com.ph</a>
-        <a href="tel:+63917-124-4603">+63917-124-4603</a>
-        <a href="https://www.google.com/maps/place/Capital+House/@14.5542424,121.052606,21z/data=!4m6!3m5!1s0x3397c8f4660f8e2d:0x12179121d2855bc!8m2!3d14.5542768!4d121.0528958!16s%2Fg%2F11c59wnstp?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D">20th Floor, Unit 2007, Capital House 9th Ave. Corner Lane BGC, Taguig City, Philippines</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 ZAPS Solutions Inc. All Rights Reserved.</div>
-    <div class="footer-pcap">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      PCAP Member
-    </div>
-  </div>
-</footer>
+<div id="site-footer"></div>
 
 <script>
 (function () {
@@ -1711,6 +1731,7 @@ footer {
   document.addEventListener('DOMContentLoaded', init);
 
   function init() {
+    loadFooter();
     setupNav();
     setupScrollReveal();
     setupActiveNav();
@@ -1774,42 +1795,57 @@ footer {
     }
   }
 
-  // ── Nav: scroll shadow + mobile drawer ──
+  // ── Nav: scroll shadow + mobile sidebar ──
+
+  // ── Shared footer loader ──
+  function loadFooter() {
+    fetch('footer.html')
+      .then(function(r) { return r.text(); })
+      .then(function(html) {
+        var el = document.getElementById('site-footer');
+        if (el) el.outerHTML = html;
+      })
+      .catch(function() {});
+  }
+
   function setupNav() {
-    const nav    = qs('#main-nav');
-    const btn    = qs('#menu-btn');
-    const drawer = qs('#nav-drawer');
+    const nav     = qs('#main-nav');
+    const btn     = qs('#menu-btn');
+    const sidebar = qs('#nav-sidebar');
+    const overlay = qs('#nav-overlay');
+    const closeBtn = qs('#sidebar-close');
     if (!nav) return;
 
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
 
-    if (!btn || !drawer) return;
+    if (!btn || !sidebar) return;
 
-    btn.addEventListener('click', () => {
-      const isOpen = drawer.classList.toggle('open');
-      btn.setAttribute('aria-expanded', String(isOpen));
-    });
+    function openSidebar() {
+      sidebar.classList.add('open');
+      overlay.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
 
-    qsa('a', drawer).forEach(a => {
-      a.addEventListener('click', () => {
-        drawer.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
+    btn.addEventListener('click', openSidebar);
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+    if (overlay) overlay.addEventListener('click', closeSidebar);
 
-    document.addEventListener('click', (e) => {
-      if (!nav.contains(e.target) && !drawer.contains(e.target)) {
-        drawer.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      }
+    qsa('a', sidebar).forEach(a => {
+      a.addEventListener('click', closeSidebar);
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && drawer.classList.contains('open')) {
-        drawer.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
+      if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+        closeSidebar();
         btn.focus();
       }
     });

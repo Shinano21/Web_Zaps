@@ -369,6 +369,21 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .pest-cta:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,61,125,0.35)}
 .pest-cta svg{transition:transform 0.2s}
 .pest-cta:hover svg{transform:translateX(3px)}
+.pest-learn-more{
+  display:inline-flex;align-items:center;gap:9px;
+  background:transparent;color:var(--accent);
+  border:2px solid var(--accent);
+  padding:13px 28px;border-radius:var(--r-md);
+  font-family:'Poppins',sans-serif;font-size:0.85rem;font-weight:700;
+  letter-spacing:0.5px;
+  transition:background 0.25s,color 0.25s,transform 0.2s,box-shadow 0.25s;
+}
+.pest-learn-more:hover{
+  background:var(--accent);color:var(--white);
+  transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,61,125,0.35);
+}
+.pest-learn-more svg{transition:transform 0.2s}
+.pest-learn-more:hover svg{transform:translateX(3px)}
 
 /* ─── CTA BAND ─── */
 .cta-band{
@@ -664,10 +679,16 @@ footer{
         <span class="pest-feature"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Preventive Measures</span>
         <span class="pest-feature"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Safe for Families</span>
       </div>
-      <a href="#contact" class="pest-cta">
-        Inquire Now
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <a href="#contact" class="pest-cta">
+          Inquire Now
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="cockroach.html" class="pest-learn-more">
+          Learn More
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>

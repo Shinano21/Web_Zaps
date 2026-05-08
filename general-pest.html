@@ -100,10 +100,82 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .mobile-menu-btn[aria-expanded="true"] .hamburger-icon span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 @media(min-width:900px){
   nav{grid-template-columns:1fr auto}
+  .nav-links{display:flex}
+  .mobile-menu-btn{display:none!important}
+  .nav-sidebar,.nav-overlay{display:none!important}
 }
 @media(max-width:899px){
   nav{grid-template-columns:1fr auto}
   .nav-right .nav-cta{display:none}
+  .nav-links{display:none!important}
+  .mobile-menu-btn{display:flex!important}
+}
+
+/* ── Mobile Overlay ── */
+.nav-overlay{
+  position:fixed;inset:0;z-index:1100;
+  background:rgba(5,15,40,0.65);
+  backdrop-filter:blur(3px);
+  opacity:0;pointer-events:none;
+  transition:opacity 0.35s ease;
+}
+.nav-overlay.open{opacity:1;pointer-events:auto}
+
+/* ── Mobile Sidebar ── */
+.nav-sidebar{
+  position:fixed;top:0;right:0;bottom:0;
+  width:min(300px,85vw);
+  background:#0a1f46;
+  z-index:1200;
+  display:flex;flex-direction:column;
+  transform:translateX(100%);visibility:hidden;
+  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),visibility 0s linear 0.35s;
+  box-shadow:-8px 0 48px rgba(0,0,0,0.45);
+  overflow-y:auto;
+}
+.nav-sidebar.open{
+  transform:translateX(0);visibility:visible;
+  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),visibility 0s linear 0s;
+}
+.sidebar-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 20px;border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.sidebar-head img{height:36px;filter:brightness(0) invert(1)}
+.sidebar-close{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(255,255,255,0.08);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,0.7);transition:background 0.2s;
+}
+.sidebar-close:hover{background:rgba(255,255,255,0.15);color:#fff}
+.sidebar-nav{flex:1;padding:16px 12px;display:flex;flex-direction:column;gap:4px}
+.sidebar-nav a{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 14px;border-radius:10px;
+  color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:500;
+  text-decoration:none;transition:background 0.15s,color 0.15s;
+}
+.sidebar-nav a:hover{background:rgba(255,255,255,0.08);color:#fff}
+.sidebar-nav .sidebar-icon{
+  width:32px;height:32px;border-radius:8px;flex-shrink:0;
+  background:rgba(0,61,125,0.5);border:1px solid rgba(0,113,190,0.3);
+  display:flex;align-items:center;justify-content:center;
+}
+.sidebar-nav .sidebar-icon svg{color:#90c4f0}
+.sidebar-foot{
+  padding:16px 20px;border-top:1px solid rgba(255,255,255,0.08);
+}
+.sidebar-foot a{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:#003D7D;color:#fff;padding:13px 20px;
+  border-radius:10px;font-size:0.88rem;font-weight:700;
+  text-decoration:none;transition:background 0.2s;
+}
+.sidebar-foot a:hover{background:#002d60}
+.sidebar-foot-tag{
+  font-size:0.7rem;color:rgba(255,255,255,0.3);
+  text-align:center;margin-top:10px;letter-spacing:0.5px;
 }
 
 /* ─── HERO ─── */
@@ -916,7 +988,7 @@ footer{
         <a href="index.html#services">Services</a>
         <a href="index.html#pharmcle">Product</a>
         <a href="index.html#clients">Clients</a>
-        <a href="index.html">General Pest Solutions</a>
+        <a href="general-pest.html">General Pest Solutions</a>
       </div>
     </div>
     <div>

@@ -1798,7 +1798,7 @@ footer {
   // ── Nav: scroll shadow + mobile sidebar ──
 
   // ── Shared footer loader ──
-  (function loadFooter() {
+  function loadFooter() {
     fetch('footer.html')
       .then(function(r) { return r.text(); })
       .then(function(html) {
@@ -1806,7 +1806,7 @@ footer {
         if (el) el.outerHTML = html;
       })
       .catch(function() {});
-  })();
+  }
 
   function setupNav() {
     const nav     = qs('#main-nav');

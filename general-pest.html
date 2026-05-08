@@ -542,10 +542,17 @@ footer{
 @media(min-width:640px){
   .footer-inner{grid-template-columns:1.5fr 1fr 1fr;text-align:left}
 }
-.footer-zaps{font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:800;color:var(--white);letter-spacing:-0.5px;margin-bottom:12px}
-.footer-zaps span{color:#7dc4f8}
+.footer-logo{height:52px;width:auto;filter:brightness(0) invert(1);margin-bottom:14px;display:block}
 .footer-tagline{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.6;max-width:280px;margin:0 auto}
 @media(min-width:640px){.footer-tagline{margin:0}}
+.footer-socials{display:flex;gap:8px;margin-top:16px}
+.footer-social-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+  color:rgba(255,255,255,0.7);transition:background 0.2s,color 0.2s;
+}
+.footer-social-btn:hover{background:rgba(255,255,255,0.16);color:#fff}
 .footer-col-title{font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px}
 .footer-links{display:flex;flex-direction:column;gap:10px;align-items:center}
 @media(min-width:640px){.footer-links{align-items:flex-start}}
@@ -559,12 +566,6 @@ footer{
 .footer-copy{font-size:0.78rem;color:rgba(255,255,255,0.4)}
 .footer-pcap{display:flex;align-items:center;gap:6px;font-size:0.7rem;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:1px}
 .footer-pcap svg{color:#7dc4f8}
-.footer-social {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-size: 0.8rem; color: rgba(255,255,255,0.45);
-  margin-top: 14px; transition: color 0.2s;
-}
-.footer-social:hover { color: rgba(255,255,255,0.8); }
 
 /* ─── REVEAL ─── */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity 0.65s var(--ease),transform 0.65s var(--ease)}
@@ -956,7 +957,7 @@ footer{
           <div class="info-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
-          <div class="info-text"><strong>Email</strong><span>customercare@zapssolutions.com.ph</span></div>
+          <div class="info-text"><strong>Email</strong><span>customercare@zapssolutions.ph</span></div>
         </div>
         <div class="info-item">
           <div class="info-icon">
@@ -1023,14 +1024,13 @@ footer{
 <footer>
   <div class="footer-inner">
     <div class="footer-brand-col">
-      <a href="index.html" class="footer-logo-link" aria-label="ZAPS Solutions home">
-        <img src="images/zaps_logo.png" alt="ZAPS Solutions Inc." height="48" style="filter:brightness(0) invert(1);margin-bottom:12px;display:block;">
-      </a>
+      <img src="images/zaps_logo.png" alt="ZAPS Solutions Inc." class="footer-logo">
       <p class="footer-tagline">Philippines' premier pest control company, backed by Pharmcle Korea's 35+ years of biocide expertise.</p>
-      <a href="https://facebook.com/ZAPSSolutionsPestManagement" target="_blank" rel="noopener" class="footer-social" aria-label="ZAPS on Facebook">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        Facebook
-      </a>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/zapssolutions" target="_blank" rel="noopener" class="footer-social-btn" aria-label="ZAPS Solutions on Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
     </div>
     <div>
       <div class="footer-col-title">Quick Links</div>
@@ -1044,12 +1044,11 @@ footer{
       </div>
     </div>
     <div>
-      <div class="footer-col-title">Contact Us</div>
+      <div class="footer-col-title">Get In Touch</div>
       <div class="footer-links">
-        <a href="mailto:customercare@zapssolutions.ph">customercare@zapssolutions.ph</a>
         <a href="tel:+639171244603">+63 917 124 4603</a>
+        <a href="mailto:customercare@zapssolutions.ph">customercare@zapssolutions.ph</a>
         <a href="https://www.zapssolutions.ph" target="_blank" rel="noopener">www.zapssolutions.ph</a>
-        <a href="https://www.google.com/maps/place/Capital+House/@14.5542424,121.052606,21z" target="_blank" rel="noopener">20th Floor, Unit 2007, Capital House, 9th Ave. Corner Lane BGC, Taguig City</a>
       </div>
     </div>
   </div>

@@ -362,7 +362,6 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 <div id="progress-bar"></div>
 
 <!-- NAV -->
-<!-- NAV -->
 <div class="nav-wrap">
   <nav aria-label="Main navigation" id="main-nav">
     <div class="nav-brand">
@@ -439,7 +438,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 
 
 <!-- ═══ HERO ═══ -->
-<section id="hero" class="hero" aria-label="Cockroach Control">
+<section id="hero" class="hero" aria-label="Flying Pest Control">
   <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
@@ -537,15 +536,12 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
         method="POST"
         novalidate
       >
-        <!-- FormSubmit hidden configuration fields -->
         <input type="hidden" name="_captcha"  value="false">
         <input type="hidden" name="_subject"  value="Flying Pest Control Inquiry — ZAPS Solutions">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_next"     value="https://shinano21.github.io/Web_Zaps/thankyou.html">
-        <!-- Honeypot spam trap -->
         <input type="text"   name="_honey"    style="display:none" tabindex="-1" autocomplete="off">
 
-        <!-- Row 1: Name + Email -->
         <div class="form-row">
           <div class="form-group" style="margin-bottom:0">
             <label for="f-name">Name</label>
@@ -557,7 +553,6 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
           </div>
         </div>
 
-        <!-- Row 2: Phone + Address -->
         <div class="form-row">
           <div class="form-group" style="margin-bottom:0">
             <label for="f-phone">Phone Number</label>
@@ -569,7 +564,6 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
           </div>
         </div>
 
-        <!-- Pest Issue -->
         <div class="form-group">
           <label for="f-pest">Pest Issue</label>
           <select id="f-pest" name="Pest Issue" required>
@@ -584,13 +578,11 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
           </select>
         </div>
 
-        <!-- Message -->
         <div class="form-group">
           <label for="f-message">Message</label>
           <textarea id="f-message" name="Message" placeholder="Describe your flying pest concern, frequency, affected areas…" rows="4"></textarea>
         </div>
 
-        <!-- Submit -->
         <button class="submit-btn" type="submit">
           Inquire Now
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -627,26 +619,21 @@ function updateProgress(){
 }
 window.addEventListener('scroll', updateProgress, {passive:true});
 
-/* ── Nav scroll shadow ── */
-const nav = document.getElementById('main-nav');
-window.addEventListener('scroll',function(){
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-},{passive:true});
-
-/* ── Drawer toggle ── */
-const menuBtn = document.getElementById('menu-btn');
-const drawer  = document.getElementById('nav-drawer');
-if(menuBtn && drawer){
-  menuBtn.addEventListener('click',function(){
-    const open = drawer.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(open));
-  });
-  document.addEventListener('click',function(e){
-    if(!nav.contains(e.target) && !drawer.contains(e.target)){
-      drawer.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded','false');
-    }
-  });
+/* ── Nav ── */
+const nav      = document.getElementById('main-nav');
+const menuBtn  = document.getElementById('menu-btn');
+const sidebar  = document.getElementById('nav-sidebar');
+const overlay  = document.getElementById('nav-overlay');
+const closeBtn = document.getElementById('sidebar-close');
+window.addEventListener('scroll',function(){ nav.classList.toggle('scrolled', window.scrollY > 40); },{passive:true});
+if(menuBtn && sidebar && overlay){
+  function openSidebar(){sidebar.classList.add('open');overlay.classList.add('open');menuBtn.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';if(closeBtn)closeBtn.focus();}
+  function closeSidebar(){sidebar.classList.remove('open');overlay.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');document.body.style.overflow='';menuBtn.focus();}
+  menuBtn.addEventListener('click',openSidebar);
+  overlay.addEventListener('click',closeSidebar);
+  if(closeBtn)closeBtn.addEventListener('click',closeSidebar);
+  sidebar.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeSidebar);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&sidebar.classList.contains('open'))closeSidebar();});
 }
 
 /* ── Hero bg lazy load ── */

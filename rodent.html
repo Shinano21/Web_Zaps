@@ -13,7 +13,7 @@
 :root{
   --white:#ffffff;--off-white:#f8f7f4;--ink:#0d1117;--ink-2:#1c2530;--ink-muted:#4a5568;
   --accent:#003D7D;--accent-2:#002d60;--accent-light:#0071BE;--blue-deep:#0f2d52;--blue-mid:#1e4a82;
-  --surface:#f0f4f0;--border:#e2e8e2;--nav-h:68px;
+  --surface:#f0f4f0;--border:#e2e8e2;--nav-h:92px;
   --r-sm:8px;--r-md:14px;--r-lg:22px;--r-xl:32px;--max-w:1220px;--ease:cubic-bezier(0.16,1,0.3,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -27,12 +27,12 @@ button{font-family:inherit;cursor:pointer}
 nav{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,48px);background:var(--white);border-bottom:1px solid var(--border);transition:box-shadow 0.3s ease;position:relative;z-index:1001}
 nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .nav-brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
-.nav-zaps-logo{display:flex;align-items:center;height:44px}
-.nav-zaps-logo img{height:44px;width:auto;object-fit:contain;display:block}
+.nav-zaps-logo{display:flex;align-items:center;height:68px}
+.nav-zaps-logo img{height:68px;width:auto;object-fit:contain;display:block}
 .nav-divider{width:1px;height:28px;background:var(--border);flex-shrink:0}
 .nav-pharmcle-pill{display:flex;align-items:center;background:var(--white);border-radius:var(--r-sm);padding:4px 8px;border:1.5px solid var(--border);transition:box-shadow 0.2s,transform 0.2s}
 .nav-pharmcle-pill:hover{box-shadow:0 0 0 3px rgba(0,61,125,0.12);transform:translateY(-1px)}
-.nav-pharmcle-pill img{height:26px;width:auto;object-fit:contain}
+.nav-pharmcle-pill img{height:36px;width:auto;object-fit:contain}
 .nav-links{display:none;align-items:center;gap:32px;list-style:none}
 .nav-links a{font-size:0.875rem;font-weight:500;color:var(--ink-muted);transition:color 0.2s;padding:4px 0;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.25s var(--ease)}

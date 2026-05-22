@@ -500,6 +500,28 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .delay-3{transition-delay:0.32s}
 .delay-4{transition-delay:0.42s}
 .delay-5{transition-delay:0.52s}
+
+/* ─── FOOTER ─── */
+footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(40px,6vw,64px) clamp(16px,4vw,48px) 24px}
+.footer-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr;gap:40px;text-align:center}
+@media(min-width:640px){.footer-inner{grid-template-columns:1.5fr 1fr 1fr;text-align:left}}
+.footer-logo{height:52px;width:auto;filter:brightness(0) invert(1);margin-bottom:14px;display:block;margin-left:auto;margin-right:auto}
+@media(min-width:640px){.footer-logo{margin-left:0;margin-right:0}}
+.footer-tagline{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.6;max-width:280px;margin:0 auto}
+@media(min-width:640px){.footer-tagline{margin:0}}
+.footer-socials{display:flex;gap:8px;margin-top:16px;justify-content:center}
+@media(min-width:640px){.footer-socials{justify-content:flex-start}}
+.footer-social-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);transition:background 0.2s,color 0.2s}
+.footer-social-btn:hover{background:rgba(255,255,255,0.16);color:#fff}
+.footer-col-title{font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px}
+.footer-links{display:flex;flex-direction:column;gap:10px;align-items:center}
+@media(min-width:640px){.footer-links{align-items:flex-start}}
+.footer-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);transition:color 0.2s}
+.footer-links a:hover{color:#fff}
+.footer-bottom{max-width:var(--max-w);margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.footer-copy{font-size:0.78rem;color:rgba(255,255,255,0.4)}
+.footer-pcap{display:flex;align-items:center;gap:6px;font-size:0.7rem;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:1px}
+.footer-pcap svg{color:#7dc4f8}
 </style>
 </head>
 <body>
@@ -800,7 +822,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
           <div class="info-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
-          <div class="info-text"><strong>Email</strong><span>customercare@zapssolutions.com.ph</span></div>
+          <div class="info-text"><strong>Email</strong><span>customercare@zapssolutions.ph</span></div>
         </div>
         <div class="info-item">
           <div class="info-icon">
@@ -818,45 +840,52 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
       </div>
       <div class="contact-form reveal delay-1">
         <h3 class="form-title">Send Us a Message</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="f-name">Full Name</label>
-            <input id="f-name" type="text" placeholder="Your Full Name" autocomplete="name">
+        <form action="https://formsubmit.co/customercare@zapssolutions.ph" method="POST" novalidate>
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="General Pest Solutions Inquiry — ZAPS Solutions">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://shinano21.github.io/Web_Zaps/thankyou.html">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">Full Name</label>
+              <input id="f-name" name="Full Name" type="text" placeholder="Your Full Name" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="Email" type="email" placeholder="your@email.com" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-phone">Phone Number</label>
+              <input id="f-phone" name="Phone Number" type="tel" placeholder="+63 XXX XXX XXXX" autocomplete="tel" required>
+            </div>
+            <div class="form-group">
+              <label for="f-pest">Pest Issue</label>
+              <select id="f-pest" name="Pest Issue" required>
+                <option value="">Select Issue</option>
+                <option>Cockroach</option>
+                <option>Termites</option>
+                <option>Flying Pest</option>
+                <option>Rodents</option>
+                <option>Other Pests</option>
+              </select>
+            </div>
           </div>
           <div class="form-group">
-            <label for="f-email">Email</label>
-            <input id="f-email" type="email" placeholder="your@email.com" autocomplete="email">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="f-phone">Phone Number</label>
-            <input id="f-phone" type="tel" placeholder="+63 XXX XXX XXXX" autocomplete="tel">
+            <label for="f-address">Address</label>
+            <input id="f-address" name="Address" type="text" placeholder="Your Complete Address" autocomplete="street-address" required>
           </div>
           <div class="form-group">
-            <label for="f-pest">Pest Issue</label>
-            <select id="f-pest">
-              <option value="">Select Issue</option>
-              <option>Cockroach</option>
-              <option>Termites</option>
-              <option>Flying Pest</option>
-              <option>Rodents</option>
-              <option>Other Pests</option>
-            </select>
+            <label for="f-message">Message</label>
+            <textarea id="f-message" name="Message" placeholder="Tell us about your pest concern..."></textarea>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="f-address">Address</label>
-          <input id="f-address" type="text" placeholder="Your Complete Address" autocomplete="street-address">
-        </div>
-        <div class="form-group">
-          <label for="f-message">Message</label>
-          <textarea id="f-message" placeholder="Tell us about your pest concern..."></textarea>
-        </div>
-        <button class="submit-btn" type="button">
-          Get Free Inspection
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </button>
+          <button class="submit-btn" type="submit">
+            Get Free Inspection
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </button>
+        </form>
       </div>
     </div>
   </div>

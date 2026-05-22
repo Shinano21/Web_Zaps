@@ -271,10 +271,10 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .iptmf-layout{
   display:grid;grid-template-columns:1fr;gap:36px;align-items:center;position:relative;z-index:1;
 }
-@media(min-width:960px){.iptmf-layout{grid-template-columns:340px 1fr;gap:56px}}
+@media(min-width:960px){.iptmf-layout{grid-template-columns:1fr 1fr;gap:56px}}
 .iptmf-diagram-wrap{display:flex;justify-content:center}
 .iptmf-diagram-wrap img{
-  max-width:320px;width:100%;height:auto;
+  max-width:100%;width:100%;height:auto;
   filter:drop-shadow(0 10px 32px rgba(0,61,125,0.15));
 }
 .iptmf-steps{display:flex;flex-direction:column;gap:18px}
@@ -729,15 +729,15 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
 
 <!-- ═══ FLYING PEST ═══ -->
 <section id="flyingpest" class="pest-section" aria-label="Flying Pest Control">
-  <div class="pest-inner">
-    <div class="pest-visual reveal-left">
+  <div class="pest-inner flip">
+    <div class="pest-visual reveal-right">
       <div class="pest-visual-img">
         <img src="images/mosquito.jpg" alt="Flying Pest Control" loading="lazy">
       </div>
       <div class="pest-visual-badge">Flying Pest Control</div>
       <div class="pest-visual-num">03</div>
     </div>
-    <div class="pest-text reveal-right">
+    <div class="pest-text reveal-left">
       <div class="pest-label">General Pest · 03</div>
       <h2 class="pest-title">Flying Pest Control</h2>
       <p class="pest-body">Protect your home or business from mosquitoes, flies, and other flying pests with our professional control solutions. We conduct thorough inspections, identify breeding sources, and apply targeted treatments to eliminate flying pest activity and prevent re-infestation.</p>

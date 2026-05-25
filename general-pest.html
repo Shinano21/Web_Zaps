@@ -265,10 +265,10 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .iptmf-layout{
   display:grid;grid-template-columns:1fr;gap:36px;align-items:start;position:relative;z-index:1;
 }
-@media(min-width:960px){.iptmf-layout{grid-template-columns:1fr 1fr;gap:56px}}
+@media(min-width:960px){.iptmf-layout{grid-template-columns:auto 1fr;gap:56px}}
 .iptmf-diagram-wrap{display:flex;justify-content:center}
 .iptmf-diagram-wrap img{
-  max-width:100%;width:100%;height:auto;
+  width:clamp(260px,38vw,440px);height:auto;
   filter:drop-shadow(0 10px 32px rgba(0,61,125,0.15));
 }
 .iptmf-steps{display:flex;flex-direction:column;gap:18px}

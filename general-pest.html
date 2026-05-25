@@ -30,7 +30,7 @@
   --ease: cubic-bezier(0.16,1,0.3,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 60px);-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%}
 body{font-family:'Poppins',sans-serif;background:var(--off-white);color:var(--ink);overflow-x:hidden;line-height:1.6}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -141,7 +141,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .hero{
   position:relative;min-height:calc(100vh - var(--nav-h));
   display:flex;align-items:center;justify-content:center;
-  padding:80px clamp(16px,4vw,48px) 80px;
+  padding:clamp(40px,7vw,80px) clamp(16px,4vw,48px);
   text-align:center;overflow:hidden;
 }
 .hero-bg{
@@ -292,10 +292,9 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .pest-inner{
   max-width:var(--max-w);margin:0 auto;
   display:grid;grid-template-columns:1fr;
-  min-height:520px;
 }
 @media(min-width:900px){
-  .pest-inner{grid-template-columns:1fr 1fr}
+  .pest-inner{grid-template-columns:1fr 1fr;min-height:520px}
   .pest-inner.flip{direction:rtl}
   .pest-inner.flip>*{direction:ltr}
 }
@@ -325,7 +324,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 }
 .pest-visual-num{
   position:absolute;bottom:24px;left:28px;
-  font-family:'Poppins',sans-serif;font-size:5.5rem;font-weight:800;
+  font-family:'Poppins',sans-serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:800;
   color:rgba(255,255,255,0.12);line-height:1;pointer-events:none;user-select:none;
 }
 .pest-visual-badge{
@@ -422,7 +421,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 
 /* ─── CONTACT ─── */
 #contact{background:var(--off-white)}
-.contact-grid{display:grid;grid-template-columns:1fr;gap:60px;align-items:start}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:clamp(32px,5vw,60px);align-items:start}
 @media(min-width:900px){.contact-grid{grid-template-columns:1fr 1.3fr}}
 .contact-title{
   font-family:'Poppins',sans-serif;font-size:clamp(28px,5vw,48px);
@@ -455,7 +454,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .form-row{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:16px}
 @media(min-width:480px){.form-row{grid-template-columns:1fr 1fr}}
 .form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
-.form-group label{font-size:0.73rem;font-weight:600;letter-spacing:0.5px;color:var(--ink-muted);text-transform:uppercase}
+.form-group label{font-size:0.8rem;font-weight:600;letter-spacing:0.5px;color:var(--ink-muted);text-transform:uppercase}
 .form-group input,.form-group textarea,.form-group select{
   background:var(--surface);border:1px solid var(--border);
   border-radius:var(--r-sm);padding:12px 14px;color:var(--ink);

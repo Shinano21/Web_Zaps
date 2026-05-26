@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ZAPS Solutions Biocide Products — Pharmcle-powered pest control products including Delta EC, Roach Gel, White Fence, ZAPS Rodenticide, Teme EC, and Teme Tablet.">
+<title>Products – ZAPS Solutions Inc.</title>
+<link rel="icon" href="images/zaps_logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#ffffff;--off-white:#f8f7f4;--ink:#0d1117;--ink-2:#1c2530;--ink-muted:#4a5568;
+  --accent:#003D7D;--accent-2:#002d60;--accent-light:#0071BE;--blue-deep:#0f2d52;--blue-mid:#1e4a82;
+  --gold:#c9a227;--surface:#f0f4f0;--border:#e2e8e2;--nav-h:92px;
+  --r-sm:8px;--r-md:14px;--r-lg:22px;--r-xl:32px;--max-w:1220px;--ease:cubic-bezier(0.16,1,0.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%}
+body{font-family:'Poppins',sans-serif;background:var(--off-white);color:var(--ink);overflow-x:hidden;line-height:1.6}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+#progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--accent-light),var(--accent));z-index:2000;transition:width 0.1s linear}
+.nav-wrap{position:fixed;top:0;left:0;right:0;z-index:1000}
+nav{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,48px);background:var(--white);border-bottom:1px solid var(--border);transition:box-shadow 0.3s ease;position:relative;z-index:1001}
+nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
+.nav-brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.nav-zaps-logo{display:flex;align-items:center;height:68px}
+.nav-zaps-logo img{height:68px;width:auto;object-fit:contain;display:block}
+.nav-divider{width:1px;height:38px;background:var(--border);flex-shrink:0}
+.nav-pharmcle-pill{display:flex;align-items:center}
+.nav-pharmcle-pill img{height:40px;width:auto;object-fit:contain}
+.nav-links{display:none;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:0.875rem;font-weight:500;color:var(--ink-muted);transition:color 0.2s;padding:4px 0;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.25s var(--ease)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--ink)}
+.nav-cta{background:var(--accent)!important;color:var(--white)!important;padding:9px 20px!important;border-radius:var(--r-sm)!important;font-weight:600!important;transition:background 0.2s,transform 0.2s!important}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--accent-2)!important;transform:translateY(-1px)}
+.mobile-menu-btn{display:flex;align-items:center;justify-content:center;background:none;border:1.5px solid var(--border);color:var(--ink);padding:8px;border-radius:var(--r-sm);min-width:44px;min-height:44px;transition:background 0.2s,border-color 0.2s;cursor:pointer;flex-shrink:0}
+.mobile-menu-btn:hover{background:var(--surface);border-color:var(--accent)}
+.hamburger-icon{display:flex;flex-direction:column;justify-content:center;gap:5px;width:22px;height:22px}
+.hamburger-icon span{display:block;width:100%;height:2px;background:var(--ink);border-radius:2px;transition:transform 0.3s ease,opacity 0.3s ease,width 0.3s ease;transform-origin:center}
+.hamburger-icon span:nth-child(3){width:65%}
+.mobile-menu-btn[aria-expanded="true"] .hamburger-icon span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.mobile-menu-btn[aria-expanded="true"] .hamburger-icon span:nth-child(2){opacity:0;transform:scaleX(0)}
+.mobile-menu-btn[aria-expanded="true"] .hamburger-icon span:nth-child(3){width:100%;transform:translateY(-7px) rotate(-45deg)}
+.nav-overlay{position:fixed;inset:0;z-index:1100;background:rgba(5,15,40,0.65);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1;pointer-events:auto}
+.nav-sidebar{position:fixed;top:0;right:0;bottom:0;width:min(300px,85vw);background:#0a1f46;z-index:1200;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),visibility 0s linear 0.35s;box-shadow:-8px 0 48px rgba(0,0,0,0.45);overflow-y:auto}
+.nav-sidebar.open{transform:translateX(0);visibility:visible;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),visibility 0s linear 0s}
+.sidebar-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.sidebar-head img{height:36px;filter:brightness(0) invert(1)}
+.sidebar-close{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);transition:background 0.2s}
+.sidebar-close:hover{background:rgba(255,255,255,0.15);color:#fff}
+.sidebar-nav{flex:1;padding:12px 10px;display:flex;flex-direction:column;gap:2px}
+.sidebar-nav a{display:flex;align-items:center;gap:14px;padding:11px 12px;border-radius:10px;color:rgba(255,255,255,0.75);font-size:0.9rem;font-weight:500;text-decoration:none;transition:background 0.15s,color 0.15s;min-height:48px}
+.sidebar-nav a:hover,.sidebar-nav a.active{background:rgba(255,255,255,0.08);color:#fff}
+.sidebar-nav .sidebar-icon{width:36px;height:36px;border-radius:9px;flex-shrink:0;background:rgba(0,61,125,0.6);border:1px solid rgba(0,113,190,0.35);display:flex;align-items:center;justify-content:center}
+.sidebar-nav a:hover .sidebar-icon,.sidebar-nav a.active .sidebar-icon{background:rgba(0,97,175,0.7);border-color:rgba(0,151,224,0.5)}
+.sidebar-nav .sidebar-icon svg{color:#7dc4f8;width:16px;height:16px}
+.sidebar-divider{height:1px;background:rgba(255,255,255,0.08);margin:6px 4px}
+.sidebar-foot{padding:16px 20px;border-top:1px solid rgba(255,255,255,0.08)}
+.sidebar-foot a{display:flex;align-items:center;justify-content:center;gap:8px;background:#003D7D;color:#fff;padding:13px 20px;border-radius:10px;font-size:0.88rem;font-weight:700;text-decoration:none;transition:background 0.2s}
+.sidebar-foot a:hover{background:#002d60}
+.sidebar-foot-tag{font-size:0.7rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:10px;letter-spacing:0.5px}
+@media(min-width:900px){.nav-links{display:flex}.mobile-menu-btn{display:none!important}.nav-sidebar,.nav-overlay{display:none!important}}
+@media(max-width:899px){.mobile-menu-btn{display:flex!important}.nav-links{display:none!important}}
+
+/* ── Pharmcle Hero Banner ── */
+.pharmcle-banner{
+  margin-top:var(--nav-h);
+  position:relative;
+  background:linear-gradient(135deg,#eef4fb 0%,#d8e9f8 50%,#c8def5 100%);
+  overflow:hidden;
+  padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px);
+}
+.pharmcle-banner::before{
+  content:'';position:absolute;inset:0;
+  background:url('images/pharmcle-bg.jpg') center/cover no-repeat;
+  opacity:0.18;
+}
+.pharmcle-banner-inner{
+  position:relative;z-index:1;
+  max-width:var(--max-w);margin:0 auto;
+  display:grid;grid-template-columns:1fr;gap:40px;align-items:center;
+}
+@media(min-width:720px){.pharmcle-banner-inner{grid-template-columns:1fr 1fr;gap:56px}}
+.pharmcle-brand-col{}
+.pharmcle-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.pharmcle-logo-wrap{margin-bottom:18px}
+.pharmcle-logo-wrap img{height:64px;width:auto;object-fit:contain}
+.pharmcle-tagline{font-family:'Poppins',sans-serif;font-size:clamp(1.25rem,3vw,1.75rem);font-weight:800;color:var(--blue-deep);line-height:1.3;margin-bottom:10px}
+.pharmcle-tagline span{color:var(--gold)}
+.pharmcle-sub{font-size:0.9rem;color:var(--ink-muted);line-height:1.7;max-width:480px}
+.pharmcle-products-col{display:flex;justify-content:center;align-items:center}
+.pharmcle-products-col img{width:100%;max-width:520px;height:auto;filter:drop-shadow(0 12px 40px rgba(0,61,125,0.18))}
+
+/* ── Products Section ── */
+.products-section{padding:clamp(64px,8vw,96px) clamp(16px,4vw,48px);background:var(--off-white)}
+.products-inner{max-width:var(--max-w);margin:0 auto}
+.products-header{margin-bottom:clamp(40px,5vw,60px)}
+.products-eyebrow{display:flex;align-items:center;gap:10px;font-size:0.72rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.products-eyebrow::before{content:'';width:20px;height:2px;background:var(--accent)}
+.products-title{font-family:'Poppins',sans-serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;color:var(--ink);letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.products-title .hl{color:var(--accent)}
+.products-lead{font-size:0.97rem;color:var(--ink-muted);line-height:1.75;max-width:700px}
+
+/* ── Product Cards Grid ── */
+.products-grid{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:860px){.products-grid{grid-template-columns:1fr 1fr;gap:28px}}
+
+.product-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-xl);overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,0.04);
+  transition:box-shadow 0.3s var(--ease),transform 0.3s var(--ease);
+  display:flex;flex-direction:column;
+}
+.product-card:hover{box-shadow:0 12px 48px rgba(0,61,125,0.12);transform:translateY(-4px)}
+.product-card-head{
+  background:linear-gradient(135deg,var(--accent) 0%,var(--blue-mid) 100%);
+  padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.product-card-name{font-size:1.05rem;font-weight:800;color:var(--white);letter-spacing:-0.2px}
+.product-card-num{font-size:0.7rem;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.45);text-transform:uppercase;flex-shrink:0}
+.product-card-body{display:grid;grid-template-columns:1fr;flex:1}
+@media(min-width:480px){.product-card-body{grid-template-columns:160px 1fr}}
+.product-img-wrap{
+  background:linear-gradient(135deg,#f0f6ff 0%,#e6f0ff 100%);
+  display:flex;align-items:center;justify-content:center;
+  padding:28px 20px;min-height:170px;
+}
+.product-img-wrap img{max-height:150px;width:auto;max-width:130px;object-fit:contain;filter:drop-shadow(0 6px 20px rgba(0,61,125,0.15))}
+.product-content{padding:24px;display:flex;flex-direction:column;justify-content:center}
+.product-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.product-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:rgba(0,61,125,0.08);color:var(--accent);border:1px solid rgba(0,61,125,0.15)}
+.product-features{list-style:none;display:flex;flex-direction:column;gap:8px}
+.product-features li{display:flex;align-items:flex-start;gap:9px;font-size:0.85rem;color:var(--ink-muted);line-height:1.5}
+.product-features li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px}
+.product-features li strong{color:var(--ink);font-weight:700}
+.product-features li .hi{color:#c62828;font-weight:700}
+.product-features li .days{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+
+/* ── CTA Band ── */
+.cta-band{
+  background:linear-gradient(135deg,#0d2a5e 0%,#1a4a96 50%,#0d2a5e 100%);
+  position:relative;overflow:hidden;
+  padding:clamp(48px,7vw,80px) clamp(16px,4vw,48px);
+  text-align:center;
+}
+.cta-band::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 60% 50%,rgba(100,180,255,0.12) 0%,transparent 65%);
+}
+.cta-band-content{position:relative;z-index:1;max-width:640px;margin:0 auto}
+.cta-band h2{font-family:'Poppins',sans-serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:var(--white);letter-spacing:-0.5px;margin-bottom:12px}
+.cta-band p{font-size:0.97rem;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:28px}
+.btn-white{display:inline-flex;align-items:center;gap:9px;background:var(--white);color:var(--accent);padding:14px 34px;border-radius:var(--r-md);font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:700;transition:background 0.25s,color 0.25s,transform 0.2s,box-shadow 0.25s;box-shadow:0 6px 28px rgba(0,0,0,0.25)}
+.btn-white:hover{background:var(--off-white);transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,0.3)}
+
+/* ── Reveal ── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.65s var(--ease),transform 0.65s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity 0.65s var(--ease),transform 0.65s var(--ease)}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(32px);transition:opacity 0.65s var(--ease),transform 0.65s var(--ease)}
+.reveal-right.visible{opacity:1;transform:none}
+.delay-1{transition-delay:0.1s}.delay-2{transition-delay:0.18s}.delay-3{transition-delay:0.26s}
+.delay-4{transition-delay:0.34s}.delay-5{transition-delay:0.42s}.delay-6{transition-delay:0.50s}
+
+/* ── Footer placeholder ── */
+footer,#site-footer{background:#0a1f46;color:#fff}
+.footer-inner{max-width:var(--max-w);margin:0 auto;padding:56px clamp(16px,4vw,48px) 32px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:36px}
+@media(min-width:640px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
+.footer-brand img{height:44px;filter:brightness(0) invert(1);margin-bottom:16px}
+.footer-desc{font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.75;max-width:280px}
+.footer-col-title{font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);transition:color 0.2s}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{max-width:var(--max-w);margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.footer-copy{font-size:0.78rem;color:rgba(255,255,255,0.4)}
+.footer-pcap{display:flex;align-items:center;gap:6px;font-size:0.7rem;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:1px}
+.footer-pcap svg{color:#7dc4f8}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<div class="nav-wrap">
+  <nav aria-label="Main navigation" id="main-nav">
+    <div class="nav-brand">
+      <a href="index.html" class="nav-zaps-logo" aria-label="ZAPS Solutions home"><img src="images/zaps_logo.png" alt="ZAPS Solutions Inc." loading="eager"></a>
+      <div class="nav-divider" aria-hidden="true"></div>
+      <a href="products.html" class="nav-pharmcle-pill" aria-label="Our product: Pharmcle"><img src="images/pharmcle-nav.png" alt="Pharmcle" loading="eager"></a>
+    </div>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="products.html" class="active">Product</a></li>
+      <li><a href="index.html#clients">Clients</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" id="menu-btn">
+      <div class="hamburger-icon" aria-hidden="true"><span></span><span></span><span></span></div>
+    </button>
+  </nav>
+</div>
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+<aside class="nav-sidebar" id="nav-sidebar" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="sidebar-head">
+    <img src="images/zaps_logo.png" alt="ZAPS Solutions Inc.">
+    <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html"><div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>Home</a>
+    <a href="index.html#about"><div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>About Us</a>
+    <a href="index.html#services"><div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>Services</a>
+    <a href="products.html" class="active"><div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>Product</a>
+    <a href="index.html#clients"><div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>Clients</a>
+    <div class="sidebar-divider" aria-hidden="true"></div>
+    <a href="index.html#contact"><div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>Contact Us</a>
+  </nav>
+  <div class="sidebar-foot">
+    <a href="index.html#contact"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Request a Zapper</a>
+    <div class="sidebar-foot-tag">Philippines' Premium Pest Control</div>
+  </div>
+</aside>
+
+<!-- ═══ PHARMCLE BANNER ═══ -->
+<div class="pharmcle-banner">
+  <div class="pharmcle-banner-inner">
+    <div class="pharmcle-brand-col reveal-left">
+      <div class="pharmcle-eyebrow">Biocides Company</div>
+      <div class="pharmcle-logo-wrap">
+        <img src="images/pharmcle-logo.jpg" alt="Pharmcle" loading="eager">
+      </div>
+      <h1 class="pharmcle-tagline"><span>KOREA'S</span> Top Provider of Pest Control Solutions and Biocide Manufacturing</h1>
+      <p class="pharmcle-sub">Since 1989, Pharmcle has been Korea's leading developer of smart, effective biocide solutions — trusted by pest management professionals across Asia.</p>
+    </div>
+    <div class="pharmcle-products-col reveal-right">
+      <img src="images/products.png" alt="Pharmcle Biocide Products Lineup" loading="eager">
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PRODUCTS SECTION ═══ -->
+<section class="products-section" aria-label="ZAPS Biocide Products">
+  <div class="products-inner">
+    <div class="products-header reveal">
+      <div class="products-eyebrow">Pharmcle-Powered Solutions</div>
+      <h2 class="products-title">ZAPS <span class="hl">Biocide</span> Products</h2>
+      <p class="products-lead">Zaps is a specialized commercial hygiene and pest management brand. As a trusted pest control company, we provide effective and reliable Pharmcle biocide products designed for safe, clean, and healthy environments — for homes, businesses, and industry professionals.</p>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- Delta EC -->
+      <div class="product-card reveal delay-1">
+        <div class="product-card-head">
+          <span class="product-card-name">Delta EC</span>
+          <span class="product-card-num">01</span>
+        </div>
+        <div class="product-card-body">
+          <div class="product-img-wrap">
+            <img src="images/Delta EC.png" alt="Delta EC" loading="lazy">
+          </div>
+          <div class="product-content">
+            <div class="product-tags">
+              <span class="product-tag">Mosquitoes</span>
+              <span class="product-tag">Flies</span>
+              <span class="product-tag">Cockroaches</span>
+            </div>
+            <ul class="product-features">
+              <li><strong>Multi Insect Killer</strong> — targets mosquitoes, flies, and cockroaches</li>
+              <li>Residual Effect: <span class="days">Cockroaches 15 Days</span> &amp; <span class="days">Flies 30 Days</span></li>
+              <li>Fast Knock Down</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Roach Gel -->
+      <div class="product-card reveal delay-2">
+        <div class="product-card-head">
+          <span class="product-card-name">Roach Gel</span>
+          <span class="product-card-num">02</span>
+        </div>
+        <div class="product-card-body">
+          <div class="product-img-wrap">
+            <img src="images/Roach Gel.png" alt="Roach Gel" loading="lazy">
+          </div>
+          <div class="product-content">
+            <div class="product-tags">
+              <span class="product-tag">Cockroaches</span>
+            </div>
+            <ul class="product-features">
+              <li>Cockroaches typically die within <span class="days">1 to 3 Days</span> after consuming the bait</li>
+              <li>Other roaches may eat the dead ones or their droppings — spreading the poison to more roaches</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- White Fence -->
+      <div class="product-card reveal delay-3">
+        <div class="product-card-head">
+          <span class="product-card-name">White Fence</span>
+          <span class="product-card-num">03</span>
+        </div>
+        <div class="product-card-body">
+          <div class="product-img-wrap">
+            <img src="images/White Fence.png" alt="White Fence" loading="lazy">
+          </div>
+          <div class="product-content">
+            <div class="product-tags">
+              <span class="product-tag">Cockroaches</span>
+            </div>
+            <ul class="product-features">
+              <li>Foam mixture that traps cockroaches causing them to die immediately</li>
+              <li>Residual Effect: <span class="days">Cockroaches 15 Days</span></li>
+              <li>Fast Knock Down</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ZAPS Rodenticide -->
+      <div class="product-card reveal delay-4">
+        <div class="product-card-head">
+          <span class="product-card-name">ZAPS Rodenticide</span>
+          <span class="product-card-num">04</span>
+        </div>
+        <div class="product-card-body">
+          <div class="product-img-wrap">
+            <img src="images/ZAPS Rodenticide.png" alt="ZAPS Rodenticide" loading="lazy">
+          </div>
+          <div class="product-content">
+            <div class="product-tags">
+              <span class="product-tag">Rats</span>
+              <span class="product-tag">Mice</span>
+              <span class="product-tag">Rodents</span>
+            </div>
+            <ul class="product-features">
+              <li>Prevents blood from clotting — <span class="hi">Causing Internal Bleeding</span></li>
+              <li>Rodents die within <span class="days">3 to 7 Days</span> after consuming</li>
+              <li>Symptoms: weakness, bleeding from gums or nose, lethargy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teme EC -->
+      <div class="product-card reveal delay-5">
+        <div class="product-card-head">
+          <span class="product-card-name">Teme EC</span>
+          <span class="product-card-num">05</span>
+        </div>
+        <div class="product-card-body">
+          <div class="product-img-wrap">
+            <img src="images/Teme EC.png" alt="Teme EC" loading="lazy">
+          </div>
+          <div class="product-content">
+            <div class="product-tags">
+              <span class="product-tag">Mosquitoes</span>
+              <span class="product-tag">Larvae</span>
+            </div>
+            <ul class="product-features">
+              <li>Fast Knock Down</li>
+              <li>For stagnant water</li>
+              <li>Targets mosquito larvae</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teme Tablet -->
+      <div class="product-card reveal delay-6">
+        <div class="product-card-head">
+          <span class="product-card-name">Teme Tablet</span>
+          <span class="product-card-num">06</span>
+        </div>
+        <div class="product-card-body">
+          <div class="product-img-wrap">
+            <img src="images/Teme Tablet.png" alt="Teme Tablet" loading="lazy">
+          </div>
+          <div class="product-content">
+            <div class="product-tags">
+              <span class="product-tag">Mosquitoes</span>
+              <span class="product-tag">Larvae</span>
+              <span class="product-tag">Sewage</span>
+            </div>
+            <ul class="product-features">
+              <li>Effective for treating up to <strong>1 ton of water</strong></li>
+              <li>For sewer and septic tank</li>
+              <li>Targets mosquito larvae</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BAND ═══ -->
+<div class="cta-band" aria-label="Call to action">
+  <div class="cta-band-content reveal">
+    <h2>Need Help Choosing the Right Product?</h2>
+    <p>Our certified Zappers will assess your space and recommend the most effective Pharmcle biocide solution for your pest concern.</p>
+    <a href="index.html#contact" class="btn-white">
+      Talk to a Zapper
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+
+<script>
+(function(){
+'use strict';
+document.addEventListener('DOMContentLoaded',function(){fetch('footer.html').then(function(r){return r.text()}).then(function(html){var el=document.getElementById('site-footer');if(el)el.innerHTML=html}).catch(function(){})});
+const bar=document.getElementById('progress-bar');
+function updateProgress(){const s=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(d>0?(s/d)*100:0)+'%'}
+window.addEventListener('scroll',updateProgress,{passive:true});
+const nav=document.getElementById('main-nav'),menuBtn=document.getElementById('menu-btn'),sidebar=document.getElementById('nav-sidebar'),overlay=document.getElementById('nav-overlay'),closeBtn=document.getElementById('sidebar-close');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
+if(menuBtn&&sidebar&&overlay){
+  function openSidebar(){sidebar.classList.add('open');overlay.classList.add('open');menuBtn.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';if(closeBtn)closeBtn.focus()}
+  function closeSidebar(){sidebar.classList.remove('open');overlay.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');document.body.style.overflow='';menuBtn.focus()}
+  menuBtn.addEventListener('click',openSidebar);overlay.addEventListener('click',closeSidebar);
+  if(closeBtn)closeBtn.addEventListener('click',closeSidebar);
+  sidebar.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeSidebar)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&sidebar.classList.contains('open'))closeSidebar()});
+}
+const allReveal=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+if('IntersectionObserver' in window){const obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});allReveal.forEach(function(el){obs.observe(el)})}else{allReveal.forEach(function(el){el.classList.add('visible')})}
+})();
+</script>
+</body>
+</html>

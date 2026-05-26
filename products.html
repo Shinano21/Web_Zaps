@@ -93,7 +93,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .pharmcle-brand-col{}
 .pharmcle-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
 .pharmcle-logo-wrap{margin-bottom:18px}
-.pharmcle-logo-wrap img{height:64px;width:auto;object-fit:contain}
+.pharmcle-logo-wrap img{height:48px;width:auto;object-fit:contain}
 .pharmcle-tagline{font-family:'Poppins',sans-serif;font-size:clamp(1.25rem,3vw,1.75rem);font-weight:800;color:var(--blue-deep);line-height:1.3;margin-bottom:10px}
 .pharmcle-tagline span{color:var(--gold)}
 .pharmcle-sub{font-size:0.9rem;color:var(--ink-muted);line-height:1.7;max-width:480px}
@@ -143,8 +143,8 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .product-features li{display:flex;align-items:flex-start;gap:9px;font-size:0.85rem;color:var(--ink-muted);line-height:1.5}
 .product-features li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px}
 .product-features li strong{color:var(--ink);font-weight:700}
-.product-features li .hi{color:#c62828;font-weight:700}
-.product-features li .days{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.product-features li .hi{color:#c62828;font-weight:700;white-space:nowrap}
+.product-features li .days{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
 
 /* ── CTA Band ── */
 .cta-band{
@@ -173,15 +173,21 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .delay-1{transition-delay:0.1s}.delay-2{transition-delay:0.18s}.delay-3{transition-delay:0.26s}
 .delay-4{transition-delay:0.34s}.delay-5{transition-delay:0.42s}.delay-6{transition-delay:0.50s}
 
-/* ── Footer placeholder ── */
-footer,#site-footer{background:#0a1f46;color:#fff}
-.footer-inner{max-width:var(--max-w);margin:0 auto;padding:56px clamp(16px,4vw,48px) 32px}
-.footer-grid{display:grid;grid-template-columns:1fr;gap:36px}
-@media(min-width:640px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
-.footer-brand img{height:44px;filter:brightness(0) invert(1);margin-bottom:16px}
-.footer-desc{font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.75;max-width:280px}
+/* ── Footer ── */
+footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(40px,6vw,64px) clamp(16px,4vw,48px) 24px}
+.footer-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr;gap:40px;text-align:center}
+@media(min-width:640px){.footer-inner{grid-template-columns:1.5fr 1fr 1fr;text-align:left}}
+.footer-logo{height:52px;width:auto;filter:brightness(0) invert(1);margin-bottom:14px;display:block;margin-left:auto;margin-right:auto}
+@media(min-width:640px){.footer-logo{margin-left:0;margin-right:0}}
+.footer-tagline{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.6;max-width:280px;margin:0 auto}
+@media(min-width:640px){.footer-tagline{margin:0}}
+.footer-socials{display:flex;gap:8px;margin-top:16px;justify-content:center}
+@media(min-width:640px){.footer-socials{justify-content:flex-start}}
+.footer-social-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);transition:background 0.2s,color 0.2s}
+.footer-social-btn:hover{background:rgba(255,255,255,0.16);color:#fff}
 .footer-col-title{font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links{display:flex;flex-direction:column;gap:10px;align-items:center}
+@media(min-width:640px){.footer-links{align-items:flex-start}}
 .footer-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);transition:color 0.2s}
 .footer-links a:hover{color:var(--white)}
 .footer-bottom{max-width:var(--max-w);margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
@@ -241,7 +247,7 @@ footer,#site-footer{background:#0a1f46;color:#fff}
     <div class="pharmcle-brand-col reveal-left">
       <div class="pharmcle-eyebrow">Biocides Company</div>
       <div class="pharmcle-logo-wrap">
-        <img src="images/pharmcle-logo.jpg" alt="Pharmcle" loading="eager">
+        <img src="images/pharmcle-nav.png" alt="Pharmcle" loading="eager">
       </div>
       <h1 class="pharmcle-tagline"><span>KOREA'S</span> Top Provider of Pest Control Solutions and Biocide Manufacturing</h1>
       <p class="pharmcle-sub">Since 1989, Pharmcle has been Korea's leading developer of smart, effective biocide solutions — trusted by pest management professionals across Asia.</p>

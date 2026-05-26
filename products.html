@@ -162,6 +162,49 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .delay-1{transition-delay:0.1s}.delay-2{transition-delay:0.18s}.delay-3{transition-delay:0.26s}
 .delay-4{transition-delay:0.34s}.delay-5{transition-delay:0.42s}.delay-6{transition-delay:0.50s}
 
+/* ── Contact Section ── */
+#contact{position:relative;background:#071428 url('images/pharmcle-bg.jpg') center bottom/contain no-repeat;padding:clamp(64px,8vw,96px) clamp(16px,4vw,48px)}
+#contact::before{content:'';position:absolute;inset:0;pointer-events:none;background:rgba(7,20,40,0.55)}
+.contact-grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr;gap:40px;align-items:start;position:relative;z-index:1}
+@media(min-width:900px){.contact-grid{grid-template-columns:1fr 1.2fr;gap:56px}}
+.contact-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#90c4f0;margin-bottom:16px}
+.contact-eyebrow::before{content:'';width:24px;height:2px;background:#90c4f0;border-radius:2px}
+.contact-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.1;letter-spacing:-1px;color:#fff;margin-bottom:12px}
+.contact-title .hl{color:#0097E0}
+.contact-lead{font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:36px;max-width:400px}
+.info-cards{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.info-card{display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:14px 16px;transition:background 0.25s,border-color 0.25s}
+.info-card:hover{background:rgba(255,255,255,0.09);border-color:rgba(0,151,224,0.4)}
+.info-card-icon{width:38px;height:38px;flex-shrink:0;background:rgba(0,97,190,0.3);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:#90c4f0}
+.info-card-text strong{display:block;font-size:0.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#90c4f0;margin-bottom:3px}
+.info-card-text span,.info-card-text a{font-size:0.84rem;color:rgba(255,255,255,0.7);transition:color 0.2s}
+.info-card-text a:hover{color:#fff}
+.pcap-glass{display:flex;align-items:center;gap:12px;background:rgba(0,97,190,0.18);border:1px solid rgba(0,151,224,0.35);border-radius:var(--r-md);padding:14px 16px}
+.pcap-glass svg{color:#90c4f0;flex-shrink:0}
+.pcap-glass strong{display:block;font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;color:#90c4f0;margin-bottom:2px}
+.pcap-glass span{font-size:0.82rem;color:rgba(255,255,255,0.65)}
+.contact-form-wrap{background:rgba(255,255,255,0.96);border-radius:var(--r-xl);padding:clamp(20px,4vw,40px);box-shadow:0 24px 80px rgba(0,0,0,0.35);position:relative;z-index:1;width:100%;box-sizing:border-box}
+.form-title{font-size:1.25rem;font-weight:800;color:var(--ink);margin-bottom:22px;letter-spacing:-0.4px}
+.form-row{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:0}
+@media(min-width:480px){.form-row{grid-template-columns:1fr 1fr}}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.form-group label{font-size:0.7rem;font-weight:700;letter-spacing:0.8px;color:var(--ink-muted);text-transform:uppercase}
+.form-group input,.form-group textarea,.form-group select{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:10px 13px;color:var(--ink);font-family:'Poppins',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s,box-shadow 0.2s,background 0.2s;min-height:44px;-webkit-appearance:none;appearance:none;width:100%}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--ink-muted);opacity:0.45}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(0,61,125,0.1)}
+.form-group input.error,.form-group textarea.error,.form-group select.error{border-color:#e53e3e;box-shadow:0 0 0 3px rgba(229,62,62,0.1)}
+.field-error{font-size:0.7rem;color:#e53e3e;font-weight:600;display:none;margin-top:2px}
+.field-error.show{display:block}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234a5568' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:36px;cursor:pointer}
+.submit-btn{width:100%;background:var(--accent);color:#fff;border:none;padding:14px 20px;border-radius:var(--r-md);margin-top:4px;font-family:'Poppins',sans-serif;font-size:0.88rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;cursor:pointer;transition:background 0.25s,transform 0.2s,box-shadow 0.25s;box-shadow:0 6px 24px rgba(0,61,125,0.35);display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px}
+.submit-btn:hover:not(:disabled){background:var(--accent-2);transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,61,125,0.45)}
+.submit-btn:disabled{opacity:0.75;cursor:not-allowed;transform:none}
+.btn-spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,0.35);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;display:none;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.submit-btn.loading .btn-spinner{display:block}
+.submit-btn.loading .btn-text{opacity:0.7}
+
 /* ── Footer ── */
 footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(40px,6vw,64px) clamp(16px,4vw,48px) 24px}
 .footer-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr;gap:40px;text-align:center}
@@ -399,6 +442,137 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
   </div>
 </section>
 
+<section id="contact" aria-label="Contact Us">
+  <div class="contact-grid">
+
+    <div class="contact-info-side">
+      <p class="contact-eyebrow">Get In Touch</p>
+      <h2 class="contact-title">Let Our Zappers<br><span class="hl">Solve Your Problems</span></h2>
+      <p class="contact-lead">Reach out and we'll take care of everything. Contact Zaps Now — no commitment required.</p>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="info-card-text">
+            <strong>Phone</strong>
+            <span><a href="tel:+639171244603">+63 917 124 4603</a></span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="info-card-text">
+            <strong>Email</strong>
+            <span><a href="mailto:customercare@zapssolutions.ph">customercare@zapssolutions.ph</a></span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="info-card-text">
+            <strong>Website</strong>
+            <span><a href="https://www.zapssolutions.ph" target="_blank" rel="noopener">www.zapssolutions.ph</a></span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="info-card-text">
+            <strong>Address</strong>
+            <span>20th Floor, Unit 2007, Capital House, 9th Ave. Corner Lane BGC, Taguig City</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </div>
+          <div class="info-card-text">
+            <strong>Facebook</strong>
+            <span><a href="https://web.facebook.com/ZAPSSolutionsInc/?_rdc=1&_rdr#" target="_blank" rel="noopener">ZAPS Solutions Pest Management</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcap-glass">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div>
+          <strong>Certified Member</strong>
+          <span>Pest Control Association of the Philippines (PCAP)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <h3 class="form-title">Request a Zapper</h3>
+      <form id="contact-form" action="https://formsubmit.co/customercare@zapssolutions.ph" method="POST" novalidate>
+        <input type="hidden" name="_captcha"  value="false">
+        <input type="hidden" name="_subject"  value="New Pest Control Inquiry — ZAPS Solutions">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next"     value="https://shinano21.github.io/Web_Zaps/thankyou.html">
+        <input type="text"   name="_honey"    style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-row" style="margin-bottom:14px">
+          <div class="form-group" style="margin-bottom:0">
+            <label for="f-name">Full Name <span aria-hidden="true" style="color:#e53e3e">*</span></label>
+            <input id="f-name" name="Full Name" type="text" placeholder="Juan dela Cruz" autocomplete="name" required>
+            <span class="field-error" id="err-name">Please enter your full name.</span>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label for="f-email">Email <span aria-hidden="true" style="color:#e53e3e">*</span></label>
+            <input id="f-email" name="Email" type="email" placeholder="juan@email.com" autocomplete="email" required>
+            <span class="field-error" id="err-email">Please enter a valid email.</span>
+          </div>
+        </div>
+
+        <div class="form-row" style="margin-bottom:14px">
+          <div class="form-group" style="margin-bottom:0">
+            <label for="f-phone">Phone Number <span aria-hidden="true" style="color:#e53e3e">*</span></label>
+            <input id="f-phone" name="Phone Number" type="tel" placeholder="+63 9XX XXX XXXX" autocomplete="tel" required>
+            <span class="field-error" id="err-phone">Please enter your phone number.</span>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label for="f-pest">Pest Issue <span aria-hidden="true" style="color:#e53e3e">*</span></label>
+            <select id="f-pest" name="Pest Issue" required>
+              <option value="">Select pest type…</option>
+              <option>Cockroaches</option>
+              <option>Termites</option>
+              <option>Rats</option>
+              <option>Mosquitoes</option>
+              <option>Bed Bugs</option>
+              <option>Ants</option>
+              <option>Other</option>
+            </select>
+            <span class="field-error" id="err-pest">Please select a pest issue.</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="f-address">Address <span aria-hidden="true" style="color:#e53e3e">*</span></label>
+          <input id="f-address" name="Address" type="text" placeholder="Complete address for visit" autocomplete="street-address" required>
+          <span class="field-error" id="err-address">Please enter your address.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="Message" placeholder="Describe your pest concern, frequency, affected areas…" rows="4"></textarea>
+        </div>
+
+        <button class="submit-btn" type="submit" id="submit-btn">
+          <span class="btn-text">Contact Zaps Now</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
 <div id="site-footer"></div>
 
 <script>
@@ -420,6 +594,32 @@ if(menuBtn&&sidebar&&overlay){
 }
 const allReveal=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
 if('IntersectionObserver' in window){const obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});allReveal.forEach(function(el){obs.observe(el)})}else{allReveal.forEach(function(el){el.classList.add('visible')})}
+// ── Contact form ──
+var form=document.getElementById('contact-form');
+if(form){
+  var btn=document.getElementById('submit-btn');
+  var fields={
+    name:{el:document.getElementById('f-name'),err:document.getElementById('err-name'),validate:function(v){return v.trim().length>=2}},
+    email:{el:document.getElementById('f-email'),err:document.getElementById('err-email'),validate:function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())}},
+    phone:{el:document.getElementById('f-phone'),err:document.getElementById('err-phone'),validate:function(v){return v.trim().length>=7}},
+    pest:{el:document.getElementById('f-pest'),err:document.getElementById('err-pest'),validate:function(v){return v!==''}},
+    address:{el:document.getElementById('f-address'),err:document.getElementById('err-address'),validate:function(v){return v.trim().length>=5}}
+  };
+  Object.values(fields).forEach(function(f){
+    f.el.addEventListener('input',function(){f.el.classList.remove('error');f.err.classList.remove('show')});
+    f.el.addEventListener('change',function(){f.el.classList.remove('error');f.err.classList.remove('show')});
+  });
+  form.addEventListener('submit',function(e){
+    var valid=true;
+    Object.values(fields).forEach(function(f){
+      if(!f.validate(f.el.value)){f.el.classList.add('error');f.err.classList.add('show');valid=false}
+      else{f.el.classList.remove('error');f.err.classList.remove('show')}
+    });
+    if(!valid){e.preventDefault();var firstErr=form.querySelector('.error');if(firstErr)firstErr.scrollIntoView({behavior:'smooth',block:'center'});return}
+    btn.disabled=true;btn.classList.add('loading');btn.querySelector('.btn-text').textContent='Sending…';
+    var icon=btn.querySelector('.btn-icon');if(icon)icon.style.display='none';
+  });
+}
 })();
 </script>
 </body>

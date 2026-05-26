@@ -74,11 +74,20 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 /* ── Pharmcle Hero Banner ── */
 .pharmcle-banner{
   margin-top:var(--nav-h);
-  line-height:0;
+  position:relative;
+  background:linear-gradient(135deg,#eef4fb 0%,#d8e9f8 50%,#c8def5 100%);
+  overflow:hidden;
+  padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px);
 }
-.pharmcle-banner img{
-  width:100%;height:auto;display:block;
+.pharmcle-banner::before{
+  content:'';position:absolute;inset:0;
+  background:url('images/about-bg.jpg') center/cover no-repeat;
+  opacity:0.18;
 }
+.pharmcle-banner-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.pharmcle-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.pharmcle-logo-wrap{margin-bottom:20px}
+.pharmcle-logo-wrap img{width:100%;max-width:480px;height:auto;display:block}
 
 /* ── Products Section ── */
 .products-section{padding:clamp(64px,8vw,96px) clamp(16px,4vw,48px);background:var(--off-white)}
@@ -223,7 +232,12 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
 
 <!-- ═══ PHARMCLE BANNER ═══ -->
 <div class="pharmcle-banner">
-  <img src="images/Biocides_logo.png" alt="Pharmcle — Korea's Top Biocides Company" loading="eager">
+  <div class="pharmcle-banner-inner">
+    <div class="pharmcle-eyebrow">Biocides Company</div>
+    <div class="pharmcle-logo-wrap">
+      <img src="images/Biocides_logo.png" alt="Pharmcle — Korea's Top Biocides Company" loading="eager">
+    </div>
+  </div>
 </div>
 
 <!-- ═══ PRODUCTS SECTION ═══ -->
@@ -238,14 +252,14 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
     <div class="products-grid">
 
       <!-- Delta EC -->
-      <div class="product-card reveal delay-1">
+      <div class="product-card">
         <div class="product-card-head">
           <span class="product-card-name">Delta EC</span>
           <span class="product-card-num">01</span>
         </div>
         <div class="product-card-body">
           <div class="product-img-wrap">
-            <img src="images/Delta EC.png" alt="Delta EC" loading="lazy">
+            <img src="images/Delta EC.png" alt="Delta EC" loading="eager">
           </div>
           <div class="product-content">
             <div class="product-tags">
@@ -263,14 +277,14 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
       </div>
 
       <!-- Roach Gel -->
-      <div class="product-card reveal delay-2">
+      <div class="product-card">
         <div class="product-card-head">
           <span class="product-card-name">Roach Gel</span>
           <span class="product-card-num">02</span>
         </div>
         <div class="product-card-body">
           <div class="product-img-wrap">
-            <img src="images/Roach Gel.png" alt="Roach Gel" loading="lazy">
+            <img src="images/Roach Gel.png" alt="Roach Gel" loading="eager">
           </div>
           <div class="product-content">
             <div class="product-tags">
@@ -285,14 +299,14 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
       </div>
 
       <!-- White Fence -->
-      <div class="product-card reveal delay-3">
+      <div class="product-card">
         <div class="product-card-head">
           <span class="product-card-name">White Fence</span>
           <span class="product-card-num">03</span>
         </div>
         <div class="product-card-body">
           <div class="product-img-wrap">
-            <img src="images/White Fence.png" alt="White Fence" loading="lazy">
+            <img src="images/White Fence.png" alt="White Fence" loading="eager">
           </div>
           <div class="product-content">
             <div class="product-tags">
@@ -308,14 +322,14 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
       </div>
 
       <!-- ZAPS Rodenticide -->
-      <div class="product-card reveal delay-4">
+      <div class="product-card">
         <div class="product-card-head">
           <span class="product-card-name">ZAPS Rodenticide</span>
           <span class="product-card-num">04</span>
         </div>
         <div class="product-card-body">
           <div class="product-img-wrap">
-            <img src="images/ZAPS Rodenticide.png" alt="ZAPS Rodenticide" loading="lazy">
+            <img src="images/ZAPS Rodenticide.png" alt="ZAPS Rodenticide" loading="eager">
           </div>
           <div class="product-content">
             <div class="product-tags">
@@ -333,14 +347,14 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
       </div>
 
       <!-- Teme EC -->
-      <div class="product-card reveal delay-5">
+      <div class="product-card">
         <div class="product-card-head">
           <span class="product-card-name">Teme EC</span>
           <span class="product-card-num">05</span>
         </div>
         <div class="product-card-body">
           <div class="product-img-wrap">
-            <img src="images/Teme EC.png" alt="Teme EC" loading="lazy">
+            <img src="images/Teme EC.png" alt="Teme EC" loading="eager">
           </div>
           <div class="product-content">
             <div class="product-tags">
@@ -357,14 +371,14 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
       </div>
 
       <!-- Teme Tablet -->
-      <div class="product-card reveal delay-6">
+      <div class="product-card">
         <div class="product-card-head">
           <span class="product-card-name">Teme Tablet</span>
           <span class="product-card-num">06</span>
         </div>
         <div class="product-card-body">
           <div class="product-img-wrap">
-            <img src="images/Teme Tablet.png" alt="Teme Tablet" loading="lazy">
+            <img src="images/Teme Tablet.png" alt="Teme Tablet" loading="eager">
           </div>
           <div class="product-content">
             <div class="product-tags">

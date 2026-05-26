@@ -74,28 +74,11 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 /* ── Pharmcle Hero Banner ── */
 .pharmcle-banner{
   margin-top:var(--nav-h);
-  position:relative;
-  background:linear-gradient(135deg,#eef4fb 0%,#d8e9f8 50%,#c8def5 100%);
-  overflow:hidden;
-  padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px);
+  line-height:0;
 }
-.pharmcle-banner::before{
-  content:'';position:absolute;inset:0;
-  background:url('images/about-bg.jpg') center/cover no-repeat;
-  opacity:0.18;
+.pharmcle-banner img{
+  width:100%;height:auto;display:block;
 }
-.pharmcle-banner-inner{
-  position:relative;z-index:1;
-  max-width:760px;margin:0 auto;
-}
-.pharmcle-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.pharmcle-logo-wrap{margin-bottom:18px}
-.pharmcle-logo-wrap img{height:48px;width:auto;object-fit:contain}
-.pharmcle-tagline{font-family:'Poppins',sans-serif;font-size:clamp(1.25rem,3vw,1.75rem);font-weight:800;color:var(--blue-deep);line-height:1.3;margin-bottom:10px}
-.pharmcle-tagline span{color:var(--gold)}
-.pharmcle-sub{font-size:0.9rem;color:var(--ink-muted);line-height:1.7;max-width:480px}
-.pharmcle-products-col{display:flex;justify-content:center;align-items:center}
-.pharmcle-products-col img{width:100%;max-width:520px;height:auto;filter:drop-shadow(0 12px 40px rgba(0,61,125,0.18))}
 
 /* ── Products Section ── */
 .products-section{padding:clamp(64px,8vw,96px) clamp(16px,4vw,48px);background:var(--off-white)}
@@ -137,7 +120,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .product-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
 .product-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:rgba(0,61,125,0.08);color:var(--accent);border:1px solid rgba(0,61,125,0.15)}
 .product-features{list-style:none;display:flex;flex-direction:column;gap:8px}
-.product-features li{position:relative;padding-left:15px;font-size:0.85rem;color:var(--ink-muted);line-height:1.6;text-align:justify}
+.product-features li{position:relative;padding-left:15px;font-size:0.85rem;color:var(--ink-muted);line-height:1.6;text-align:left}
 .product-features li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
 .product-features li strong{color:var(--ink);font-weight:700}
 .product-features li .hi{color:#c62828;font-weight:700;white-space:nowrap}
@@ -240,16 +223,7 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
 
 <!-- ═══ PHARMCLE BANNER ═══ -->
 <div class="pharmcle-banner">
-  <div class="pharmcle-banner-inner">
-    <div class="pharmcle-brand-col reveal-left">
-      <div class="pharmcle-eyebrow">Biocides Company</div>
-      <div class="pharmcle-logo-wrap">
-        <img src="images/pharmcle-nav.png" alt="Pharmcle" loading="eager">
-      </div>
-      <h1 class="pharmcle-tagline"><span>KOREA'S</span> Top Provider of Pest Control Solutions and Biocide Manufacturing</h1>
-      <p class="pharmcle-sub">Since 1989, Pharmcle has been Korea's leading developer of smart, effective biocide solutions — trusted by pest management professionals across Asia.</p>
-    </div>
-  </div>
+  <img src="images/Biocides_logo.png" alt="Pharmcle — Korea's Top Biocides Company" loading="eager">
 </div>
 
 <!-- ═══ PRODUCTS SECTION ═══ -->
@@ -410,18 +384,6 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
     </div>
   </div>
 </section>
-
-<!-- ═══ CTA BAND ═══ -->
-<div class="cta-band" aria-label="Call to action">
-  <div class="cta-band-content reveal">
-    <h2>Need Help Choosing the Right Product?</h2>
-    <p>Our certified Zappers will assess your space and recommend the most effective Pharmcle biocide solution for your pest concern.</p>
-    <a href="index.html#contact" class="btn-white">
-      Talk to a Zapper
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-</div>
 
 <div id="site-footer"></div>
 

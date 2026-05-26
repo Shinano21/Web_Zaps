@@ -81,16 +81,13 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 }
 .pharmcle-banner::before{
   content:'';position:absolute;inset:0;
-  background:url('images/pharmcle-bg.jpg') center/cover no-repeat;
+  background:url('images/about-bg.jpg') center/cover no-repeat;
   opacity:0.18;
 }
 .pharmcle-banner-inner{
   position:relative;z-index:1;
-  max-width:var(--max-w);margin:0 auto;
-  display:grid;grid-template-columns:1fr;gap:40px;align-items:center;
+  max-width:760px;margin:0 auto;
 }
-@media(min-width:720px){.pharmcle-banner-inner{grid-template-columns:1fr 1fr;gap:56px}}
-.pharmcle-brand-col{}
 .pharmcle-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
 .pharmcle-logo-wrap{margin-bottom:18px}
 .pharmcle-logo-wrap img{height:48px;width:auto;object-fit:contain}
@@ -140,8 +137,8 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .product-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
 .product-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:rgba(0,61,125,0.08);color:var(--accent);border:1px solid rgba(0,61,125,0.15)}
 .product-features{list-style:none;display:flex;flex-direction:column;gap:8px}
-.product-features li{display:flex;align-items:flex-start;gap:9px;font-size:0.85rem;color:var(--ink-muted);line-height:1.5}
-.product-features li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px}
+.product-features li{position:relative;padding-left:15px;font-size:0.85rem;color:var(--ink-muted);line-height:1.6;text-align:justify}
+.product-features li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
 .product-features li strong{color:var(--ink);font-weight:700}
 .product-features li .hi{color:#c62828;font-weight:700;white-space:nowrap}
 .product-features li .days{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
@@ -251,9 +248,6 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
       </div>
       <h1 class="pharmcle-tagline"><span>KOREA'S</span> Top Provider of Pest Control Solutions and Biocide Manufacturing</h1>
       <p class="pharmcle-sub">Since 1989, Pharmcle has been Korea's leading developer of smart, effective biocide solutions — trusted by pest management professionals across Asia.</p>
-    </div>
-    <div class="pharmcle-products-col reveal-right">
-      <img src="images/products.png" alt="Pharmcle Biocide Products Lineup" loading="eager">
     </div>
   </div>
 </div>

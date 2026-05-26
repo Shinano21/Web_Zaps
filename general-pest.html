@@ -249,38 +249,6 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .eyebrow::before{content:'';width:20px;height:2px;background:var(--accent)}
 .hl{color:var(--accent)}
 
-/* ─── IPTMF ─── */
-#iptmf{
-  background:var(--white);
-  padding:clamp(40px,5vw,64px) clamp(16px,4vw,48px);
-}
-.iptmf-header{margin-bottom:36px}
-.iptmf-header h2{
-  font-family:'Poppins',sans-serif;
-  font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;
-  letter-spacing:-0.5px;line-height:1.15;color:var(--ink);margin-bottom:10px;
-}
-.iptmf-header p{font-size:0.95rem;color:var(--ink-muted);line-height:1.6}
-.iptmf-header p strong{text-decoration:underline;font-weight:700;color:var(--ink)}
-.iptmf-layout{
-  display:grid;grid-template-columns:1fr;gap:36px;align-items:start;position:relative;z-index:1;
-}
-@media(min-width:960px){.iptmf-layout{grid-template-columns:auto 1fr;gap:56px}}
-.iptmf-diagram-wrap{display:flex;justify-content:center}
-.iptmf-diagram-wrap img{
-  width:clamp(260px,38vw,440px);height:auto;
-  filter:drop-shadow(0 10px 32px rgba(0,61,125,0.15));
-}
-.iptmf-steps{display:flex;flex-direction:column;gap:18px}
-.iptmf-step{display:flex;align-items:flex-start;gap:12px}
-.iptmf-arrow{flex-shrink:0;margin-top:3px;color:var(--accent)}
-.iptmf-info strong{
-  display:block;font-size:1rem;font-weight:700;
-  color:var(--ink);margin-bottom:3px;letter-spacing:0.2px;
-}
-.iptmf-info strong .fl{font-size:1.1rem;font-weight:800;color:var(--accent)}
-.iptmf-info span{font-size:0.85rem;color:var(--ink-muted);line-height:1.45}
-
 /* ─── PEST SECTIONS ─── */
 .pest-section{
   padding:0;
@@ -618,8 +586,8 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Request a Zapper
       </a>
-      <a href="#iptmf" class="btn-ghost">
-        Our Process
+      <a href="#cockroach" class="btn-ghost">
+        View Services
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -645,45 +613,12 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="13" cy="13" rx="6" ry="5"/><circle cx="18" cy="8" r="3"/></svg>
       Rodents
     </button>
+    <button class="pest-tab" data-target="bedbugs">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83"/></svg>
+      Bed Bugs
+    </button>
   </div>
 </div>
-
-<!-- ═══ IPTMF ═══ -->
-<section id="iptmf" class="section-wrap" aria-label="IPTMF Cycle">
-  <div class="container">
-    <div class="iptmf-header reveal">
-      <h2>Tailored Pest Management Solutions</h2>
-      <p>Delivers tailored, <strong>EFFECTIVE PEST MANAGEMENT</strong> through continuous identification, planning, treatment, monitoring, and improvement.</p>
-    </div>
-    <div class="iptmf-layout">
-      <div class="iptmf-diagram-wrap reveal-left">
-        <img src="images/iptmf-cycle.png" alt="ZAPS IPTMF Cycle" loading="lazy" width="400" height="400">
-      </div>
-      <div class="iptmf-steps">
-        <div class="iptmf-step reveal delay-1">
-          <div class="iptmf-arrow"><svg width="26" height="22" viewBox="0 0 26 22" fill="none" aria-hidden="true"><polygon points="0,0 13,11 0,22" fill="#003D7D"/><polygon points="13,0 26,11 13,22" fill="#003D7D" opacity="0.55"/></svg></div>
-          <div class="iptmf-info"><strong><span class="fl">I</span>DENTIFY</strong><span>Diagnose the problem, Root Cause, Site Assessment</span></div>
-        </div>
-        <div class="iptmf-step reveal delay-2">
-          <div class="iptmf-arrow"><svg width="26" height="22" viewBox="0 0 26 22" fill="none" aria-hidden="true"><polygon points="0,0 13,11 0,22" fill="#003D7D"/><polygon points="13,0 26,11 13,22" fill="#003D7D" opacity="0.55"/></svg></div>
-          <div class="iptmf-info"><strong><span class="fl">P</span>LAN</strong><span>Corrective Action, Continuous Improvement Plan, Additional Recommendation</span></div>
-        </div>
-        <div class="iptmf-step reveal delay-3">
-          <div class="iptmf-arrow"><svg width="26" height="22" viewBox="0 0 26 22" fill="none" aria-hidden="true"><polygon points="0,0 13,11 0,22" fill="#003D7D"/><polygon points="13,0 26,11 13,22" fill="#003D7D" opacity="0.55"/></svg></div>
-          <div class="iptmf-info"><strong><span class="fl">T</span>REAT</strong><span>Strategic &amp; effective Treatment, Proactive Approach</span></div>
-        </div>
-        <div class="iptmf-step reveal delay-4">
-          <div class="iptmf-arrow"><svg width="26" height="22" viewBox="0 0 26 22" fill="none" aria-hidden="true"><polygon points="0,0 13,11 0,22" fill="#003D7D"/><polygon points="13,0 26,11 13,22" fill="#003D7D" opacity="0.55"/></svg></div>
-          <div class="iptmf-info"><strong><span class="fl">M</span>ONITOR</strong><span>Consistent reports &amp; Updates, Monitor &amp; Document Results</span></div>
-        </div>
-        <div class="iptmf-step reveal delay-5">
-          <div class="iptmf-arrow"><svg width="26" height="22" viewBox="0 0 26 22" fill="none" aria-hidden="true"><polygon points="0,0 13,11 0,22" fill="#003D7D"/><polygon points="13,0 26,11 13,22" fill="#003D7D" opacity="0.55"/></svg></div>
-          <div class="iptmf-info"><strong><span class="fl">F</span>EEDBACK</strong><span>Client engagement &amp; feedback for continuous service improvement</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ═══ COCKROACH ═══ -->
 <section id="cockroach" class="pest-section" aria-label="Cockroach Control">
@@ -780,6 +715,40 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="rodent.html" class="pest-learn-more">
+          Learn More
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BED BUGS ═══ -->
+<section id="bedbugs" class="pest-section" aria-label="Bed Bug Control">
+  <div class="pest-inner flip">
+    <div class="pest-visual reveal-right">
+      <div class="pest-visual-img">
+        <img src="images/bedbugs.jpg" alt="Bed Bug Control" loading="lazy">
+      </div>
+      <div class="pest-visual-badge">Bed Bug Control</div>
+      <div class="pest-visual-num">05</div>
+    </div>
+    <div class="pest-text reveal-left">
+      <div class="pest-label">General Pest · 05</div>
+      <h2 class="pest-title">Bed Bug Control</h2>
+      <p class="pest-body">Eliminate bed bug infestations with our targeted chemical and heat treatment methods. We conduct thorough detection, treat all affected areas, and provide follow-up monitoring to ensure complete eradication and long-term protection for your home or property.</p>
+      <div class="pest-features">
+        <span class="pest-feature"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Thorough Detection</span>
+        <span class="pest-feature"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Chemical Treatment</span>
+        <span class="pest-feature"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Heat Treatment</span>
+        <span class="pest-feature"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Follow-up Monitoring</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <a href="#contact" class="pest-cta">
+          Inquire Now
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="bedbugs.html" class="pest-learn-more">
           Learn More
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>

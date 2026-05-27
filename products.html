@@ -72,22 +72,8 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 @media(max-width:899px){.mobile-menu-btn{display:flex!important}.nav-links{display:none!important}}
 
 /* ── Pharmcle Hero Banner ── */
-.pharmcle-banner{
-  margin-top:var(--nav-h);
-  position:relative;
-  background:linear-gradient(135deg,#eef4fb 0%,#d8e9f8 50%,#c8def5 100%);
-  overflow:hidden;
-  padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px);
-}
-.pharmcle-banner::before{
-  content:'';position:absolute;inset:0;
-  background:url('images/about-bg.jpg') center/cover no-repeat;
-  opacity:1;
-}
-.pharmcle-banner-inner{position:relative;z-index:1;max-width:760px;margin:0}
-.pharmcle-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-.pharmcle-logo-wrap{margin-bottom:20px}
-.pharmcle-logo-wrap img{width:100%;max-width:480px;height:auto;display:block;margin-left:0}
+.pharmcle-banner{margin-top:var(--nav-h);overflow:hidden;line-height:0;background:#d8e9f8}
+.pharmcle-banner img{width:100%;height:auto;display:block}
 
 /* ── Products Section ── */
 .products-section{padding:clamp(64px,8vw,96px) clamp(16px,4vw,48px);background:var(--off-white)}
@@ -163,8 +149,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .delay-4{transition-delay:0.34s}.delay-5{transition-delay:0.42s}.delay-6{transition-delay:0.50s}
 
 /* ── Contact Section ── */
-#contact{position:relative;background:#071428 url('images/pharmcle-bg.jpg') center bottom/contain no-repeat;padding:clamp(64px,8vw,96px) clamp(16px,4vw,48px)}
-#contact::before{content:'';position:absolute;inset:0;pointer-events:none;background:rgba(7,20,40,0.55)}
+#contact{position:relative;background:linear-gradient(145deg,#071428 0%,#0b2151 50%,#071e50 100%);padding:clamp(64px,8vw,96px) clamp(16px,4vw,48px)}
 .contact-grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr;gap:40px;align-items:start;position:relative;z-index:1}
 @media(min-width:900px){.contact-grid{grid-template-columns:1fr 1.2fr;gap:56px}}
 .contact-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#90c4f0;margin-bottom:16px}
@@ -275,12 +260,7 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
 
 <!-- ═══ PHARMCLE BANNER ═══ -->
 <div class="pharmcle-banner">
-  <div class="pharmcle-banner-inner">
-    <div class="pharmcle-eyebrow">Biocides Company</div>
-    <div class="pharmcle-logo-wrap">
-      <img src="images/Biocides_logo.png" alt="Pharmcle — Korea's Top Biocides Company" loading="eager">
-    </div>
-  </div>
+  <img src="images/Biocides_logo.png" alt="Pharmcle — Korea's Top Biocides Company" loading="eager">
 </div>
 
 <!-- ═══ PRODUCTS SECTION ═══ -->

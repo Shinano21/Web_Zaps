@@ -191,38 +191,11 @@ nav.scrolled {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile drawer */
-.nav-drawer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: min(260px, 78%);
-  background: var(--white);
-  z-index: 1200;
-  padding: calc(var(--nav-h) + 8px) 12px 18px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  overflow-y: auto;
-  transform: translateX(-110%);
-  visibility: hidden;
-  opacity: 0;
-  transition: transform 0.32s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease, visibility 0s linear 0.32s;
-  box-shadow: 8px 0 32px rgba(0,0,0,0.12);
-}
-.nav-drawer.open {
-  transform: translateX(0);
-  visibility: visible;
-  opacity: 1;
-  transition: transform 0.32s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease, visibility 0s linear 0s;
-}
-.nav-drawer a {
-  color: var(--ink-muted); font-size: 0.98rem; font-weight: 500;
-  padding: 8px 10px; border-radius: calc(var(--r-sm) - 2px);
-  transition: background 0.15s, color 0.15s;
-  display: flex; align-items: center; min-height: 48px;
-}
+/* Mobile sidebar */
+.nav-overlay{position:fixed;inset:0;z-index:1100;background:rgba(5,15,40,0.65);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity 0.35s ease}
+.nav-overlay.open{opacity:1;pointer-events:auto}
+.nav-sidebar{position:fixed;top:0;right:0;bottom:0;width:min(300px,85vw);background:#0a1f46;z-index:1200;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),visibility 0s linear 0.35s;box-shadow:-8px 0 48px rgba(0,0,0,0.45);overflow-y:auto}
+.nav-sidebar.open{transform:translateX(0);visibility:visible;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),visibility 0s linear 0s}
 .mobile-only { display: none; }
 .mobile-icon { width: 18px; height: 18px; margin-right: 10px; flex-shrink: 0; display: inline-block; }
 @media (max-width: 899px) {
@@ -242,7 +215,7 @@ nav.scrolled {
   border-radius: 10px; font-size: 0.88rem; font-weight: 700;
   text-decoration: none; transition: background 0.2s;
 }
-.nav-drawer .drawer-cta:hover { background: var(--accent-2); }
+.sidebar-foot a:hover { background: var(--accent-2); }
 
 @media (min-width: 900px) {
   .nav-links { display: flex; }

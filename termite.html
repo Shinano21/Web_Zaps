@@ -401,5 +401,16 @@ const allReveal=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
 if('IntersectionObserver' in window){const obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});allReveal.forEach(function(el){obs.observe(el)})}else{allReveal.forEach(function(el){el.classList.add('visible')})}
 })();
 </script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js").then(function(reg) {
+    if (!sessionStorage.getItem("sw-session")) {
+      sessionStorage.setItem("sw-session", "1");
+      var ctrl = navigator.serviceWorker.controller;
+      if (ctrl) ctrl.postMessage("clear");
+    }
+  });
+}
+</script>
 </body>
 </html>

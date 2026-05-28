@@ -196,6 +196,10 @@ nav.scrolled {
 .nav-overlay.open{opacity:1;pointer-events:auto}
 .nav-sidebar{position:fixed;top:0;right:0;bottom:0;width:min(300px,85vw);background:#0a1f46;z-index:1200;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),visibility 0s linear 0.35s;box-shadow:-8px 0 48px rgba(0,0,0,0.45);overflow-y:auto}
 .nav-sidebar.open{transform:translateX(0);visibility:visible;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),visibility 0s linear 0s}
+.sidebar-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.sidebar-head img{height:36px;width:auto;filter:brightness(0) invert(1)}
+.sidebar-close{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);transition:background 0.2s}
+.sidebar-close:hover{background:rgba(255,255,255,0.15);color:#fff}
 .mobile-only { display: none; }
 .mobile-icon { width: 18px; height: 18px; margin-right: 10px; flex-shrink: 0; display: inline-block; }
 @media (max-width: 899px) {

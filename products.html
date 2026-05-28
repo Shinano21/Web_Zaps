@@ -194,6 +194,42 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .submit-btn.loading .btn-spinner{display:block}
 .submit-btn.loading .btn-text{opacity:0.7}
 
+/* ── ILT Section ── */
+.ilt-section{background:var(--white);padding:clamp(64px,8vw,96px) clamp(16px,4vw,48px)}
+.ilt-inner{max-width:var(--max-w);margin:0 auto}
+.ilt-header{margin-bottom:clamp(48px,6vw,72px);text-align:center}
+.ilt-block{border-radius:var(--r-xl);overflow:hidden;margin-bottom:40px}
+.ilt-block:last-child{margin-bottom:0}
+.ilt-block-label{display:inline-flex;align-items:center;gap:8px;font-size:0.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);background:rgba(0,61,125,0.07);border:1px solid rgba(0,61,125,0.15);border-radius:20px;padding:5px 14px;margin-bottom:20px}
+.ilt-layout{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:760px){.ilt-layout{grid-template-columns:1fr 1fr}}
+.ilt-img-wrap{background:linear-gradient(135deg,#f0f6ff 0%,#daeaff 100%);display:flex;align-items:center;justify-content:center;padding:clamp(32px,5vw,56px) clamp(20px,4vw,48px);min-height:280px}
+.ilt-img-wrap img{max-height:320px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 8px 28px rgba(0,61,125,0.18))}
+.ilt-info{padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;justify-content:center;background:var(--white)}
+.ilt-product-name{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:var(--ink);letter-spacing:-0.5px;margin-bottom:8px;line-height:1.15}
+.ilt-specs{display:flex;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.ilt-spec{font-size:0.82rem;font-weight:600;color:var(--ink-muted);background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:4px 12px}
+.ilt-tagline{font-size:0.88rem;font-weight:600;color:var(--accent);margin-bottom:14px;letter-spacing:0.2px}
+.ilt-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.ilt-features li{position:relative;padding-left:18px;font-size:0.87rem;color:var(--ink-muted);line-height:1.6}
+.ilt-features li::before{content:'';position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--accent-light);flex-shrink:0}
+.ilt-features li strong{color:var(--ink);font-weight:700}
+.ilt-highlight{display:inline-flex;align-items:center;gap:8px;font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--accent);background:rgba(0,61,125,0.07);border:1px solid rgba(0,61,125,0.2);border-radius:var(--r-sm);padding:8px 14px;margin-bottom:24px}
+.ilt-colors-title{font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink-muted);margin-bottom:12px}
+.ilt-colors{display:flex;gap:16px;flex-wrap:wrap}
+.ilt-color{display:flex;flex-direction:column;align-items:center;gap:8px}
+.ilt-color-img{width:100px;height:100px;border-radius:50%;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.1)}
+.ilt-color-img img{width:100%;height:100%;object-fit:cover}
+.ilt-color-label{font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink-muted)}
+/* iZap Pro: image right on desktop */
+.izap-pro .ilt-layout{direction:rtl}
+.izap-pro .ilt-layout>*{direction:ltr}
+.izap-pro .ilt-img-wrap{background:linear-gradient(135deg,#eef4fb 0%,#d8e8f8 100%)}
+/* ZAPS ILT: light blue bg, image-only */
+.zaps-ilt{background:linear-gradient(135deg,#c8dff5 0%,#a8cff0 100%)}
+.ilt-ilt-img-full{padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;align-items:center}
+.ilt-ilt-img-full img{max-width:700px;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 8px 28px rgba(0,61,125,0.2))}
+
 /* ── Footer ── */
 footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(40px,6vw,64px) clamp(16px,4vw,48px) 24px}
 .footer-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr;gap:40px;text-align:center}
@@ -445,6 +481,71 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ═══ INSECT LIGHT TRAPS SECTION ═══ -->
+<section class="ilt-section" aria-label="ZAPS Insect Light Traps">
+  <div class="ilt-inner">
+
+    <div class="ilt-header reveal">
+      <div class="products-eyebrow" style="justify-content:center">ZAPS Devices</div>
+      <h2 class="products-title">Insect <span class="hl">Light Traps</span></h2>
+      <p class="products-lead" style="margin:0 auto;text-align:center">Advanced UV-powered devices for continuous, chemical-free flying insect control — built for outdoor and indoor environments.</p>
+    </div>
+
+    <!-- iZap Pro -->
+    <div class="ilt-block izap-pro reveal">
+      <div class="ilt-block-label">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        Insect Light Trap — Outdoor
+      </div>
+      <div class="ilt-layout">
+        <div class="ilt-info">
+          <h3 class="ilt-product-name">iZap Pro</h3>
+          <div class="ilt-specs">
+            <span class="ilt-spec">Height: 1.8m</span>
+            <span class="ilt-spec">Weight: 10kg</span>
+          </div>
+          <ul class="ilt-features">
+            <li><strong>Powerful 270° Wide-Angle Suction</strong> with Dual Motors</li>
+            <li>Upper motor pushes air downward; lower motor draws in air from below for maximum suction power</li>
+            <li><strong>365nm UV Light</strong> — proven wavelength for attracting flying insects</li>
+          </ul>
+          <div class="ilt-highlight">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Flying Pest Capture Over 2 Weeks
+          </div>
+          <p class="ilt-colors-title">Two Colors: Black &amp; White</p>
+          <div class="ilt-colors">
+            <div class="ilt-color">
+              <div class="ilt-color-img"><img src="images/Black.png" alt="ZAPS ILT — Black" loading="lazy"></div>
+              <span class="ilt-color-label">Black</span>
+            </div>
+            <div class="ilt-color">
+              <div class="ilt-color-img"><img src="images/white.png" alt="ZAPS ILT — White" loading="lazy"></div>
+              <span class="ilt-color-label">White</span>
+            </div>
+          </div>
+        </div>
+        <div class="ilt-img-wrap">
+          <img src="images/IZap Pro.png" alt="iZap Pro Outdoor Insect Light Trap" loading="eager">
+        </div>
+      </div>
+    </div>
+
+    <!-- ZAPS ILT -->
+    <div class="ilt-block zaps-ilt reveal">
+      <div class="ilt-block-label">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+        Insect Light Trap — Indoor
+      </div>
+      <div class="ilt-ilt-img-full">
+        <h3 class="ilt-product-name" style="text-align:center;margin-bottom:24px">ZAPS ILT</h3>
+        <img src="images/ILT1.png" alt="ZAPS ILT Indoor Insect Light Trap" loading="eager">
+      </div>
+    </div>
+
   </div>
 </section>
 

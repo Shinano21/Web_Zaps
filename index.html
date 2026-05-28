@@ -488,6 +488,14 @@ nav.scrolled {
   color: var(--ink-muted);
 }
 .stat-pill strong { color: var(--accent); font-size: 1rem; }
+.see-products-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 20px; padding: 12px 24px;
+  background: var(--accent); color: #fff;
+  border-radius: var(--r-sm); font-size: 0.9rem; font-weight: 600;
+  text-decoration: none; transition: background 0.2s, transform 0.2s;
+}
+.see-products-btn:hover { background: var(--accent-2); transform: translateY(-2px); }
 
 /* Pharmcle card */
 .pharmcle-card {
@@ -1157,7 +1165,7 @@ footer {
       <div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
       Services
     </a>
-    <a href="#pharmcle">
+    <a href="products.html">
       <div class="sidebar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
       Product
     </a>
@@ -1251,6 +1259,10 @@ footer {
         <div class="stat-pill reveal reveal-delay-1">
           <strong>1989</strong> — Founded in Korea &nbsp;|&nbsp; <strong>4</strong> Decades of Expertise
         </div>
+        <a href="products.html" class="see-products-btn reveal reveal-delay-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          See Products
+        </a>
       </div>
 
       <div class="reveal reveal-delay-2" style="display:flex;justify-content:center;">

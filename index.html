@@ -633,16 +633,28 @@ nav.scrolled {
 ══════════════════════════════ */
 #iptmf {
   background: var(--white);
-  padding: clamp(28px,4vw,48px) clamp(16px,4vw,48px);
+  padding: clamp(56px,8vw,96px) clamp(16px,4vw,48px);
 }
-.iptmf-header { margin-bottom: 24px; }
+.iptmf-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.iptmf-header .eyebrow-iptmf {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 14px;
+}
+.iptmf-header .eyebrow-iptmf::before,
+.iptmf-header .eyebrow-iptmf::after {
+  content: ''; width: 20px; height: 2px; background: var(--accent);
+}
 .iptmf-header h2 {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.4rem,3vw,2.2rem); font-weight: 800;
-  letter-spacing: -0.5px; line-height: 1.15; color: var(--ink); margin-bottom: 8px;
+  font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 800;
+  letter-spacing: -1px; line-height: 1.1; color: var(--ink); margin-bottom: 0;
 }
-.iptmf-header p { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.55; }
-.iptmf-header p strong { text-decoration: underline; font-weight: 700; color: var(--ink); }
+.iptmf-header h2 span { color: var(--accent) }
 
 .iptmf-grid {
   display: grid; grid-template-columns: 1fr;
@@ -1346,7 +1358,8 @@ footer {
 <section id="iptmf" aria-label="IPTMF Cycle">
   <div class="container">
     <div class="iptmf-header reveal">
-      <h2>Zaps Customized Pest Management Solutions</h2>
+      <div class="eyebrow-iptmf">Our Approach</div>
+      <h2>Customized Pest <span>Management</span> Solutions</h2>
     </div>
     <div class="iptmf-diagram reveal" style="display:flex;justify-content:center;padding:clamp(24px,4vw,48px) 0">
       <img src="images/iptmf-cycle.png" alt="ZAPS IPTMF Cycle" width="400" height="400" loading="lazy">

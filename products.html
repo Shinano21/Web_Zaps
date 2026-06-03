@@ -31,7 +31,7 @@ button{font-family:inherit;cursor:pointer}
 
 /* ── Pharmcle Hero Banner ── */
 .pharmcle-banner{margin-top:var(--nav-h);position:relative;background:linear-gradient(135deg,#eef4fb 0%,#d8e9f8 50%,#c8def5 100%);overflow:hidden;min-height:clamp(420px,55vw,600px);display:flex;align-items:center;padding:clamp(56px,8vw,96px) clamp(16px,4vw,56px)}
-.pharmcle-banner::before{content:'';position:absolute;inset:0;background:url('images/about-bg.jpg') center/cover no-repeat;opacity:1}
+.pharmcle-banner-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;image-rendering:-webkit-optimize-contrast}
 .pharmcle-banner-inner{position:relative;z-index:1;max-width:760px;margin:0}
 .pharmcle-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
 .pharmcle-logo-wrap{margin-bottom:20px}
@@ -215,6 +215,7 @@ footer{background:linear-gradient(160deg,#111827 0%,#0d1117 100%);padding:clamp(
 
 <!-- ═══ PHARMCLE BANNER ═══ -->
 <div class="pharmcle-banner">
+  <img src="images/about-bg.jpg" alt="" class="pharmcle-banner-img" loading="eager" decoding="sync" fetchpriority="high">
   <div class="pharmcle-banner-inner">
     <div class="pharmcle-logo-wrap">
       <img src="images/Biocides_logo.png" alt="Pharmcle — Korea's Top Biocides Company" loading="eager">

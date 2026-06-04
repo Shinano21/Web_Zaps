@@ -395,7 +395,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 #about .section-title { color: var(--white); font-size: clamp(1.4rem,3vw,2rem); white-space: nowrap; }
 #about .section-title .hl { color: #7dc4f8; }
-#about .section-body { color: rgba(255,255,255,0.65); font-size: 0.84rem; line-height: 1.55; }
+#about .section-body { color: rgba(255,255,255,0.65); font-size: 0.84rem; line-height: 1.55; max-width: none; }
 #about .eyebrow { color: #90c4f0; }
 #about .eyebrow::before { background: #90c4f0; }
 
@@ -404,7 +404,7 @@ button { font-family: inherit; cursor: pointer; }
   gap: 32px; align-items: center;
 }
 @media (min-width: 900px) {
-  .about-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+  .about-grid { grid-template-columns: 0.8fr 1.2fr; gap: 48px; }
 }
 
 .about-img-wrap {
@@ -541,7 +541,7 @@ button { font-family: inherit; cursor: pointer; }
    TEAM
 ══════════════════════════════ */
 #team { background: var(--white); }
-#team .section-title { white-space: nowrap; }
+#team .section-title { white-space: nowrap; text-align: center; }
 
 .team-grid {
   display: grid; grid-template-columns: 1fr;
@@ -1018,7 +1018,8 @@ footer {
         <div class="eyebrow">Who We Are</div>
         <h2 class="section-title">Your Trusted Pest Management <span class="hl">Partner</span></h2>
 
-        <p class="section-body">Delivering proactive pest control through Integrated Pest Management, disinfection, and pest-proofing. Backed by Pharmcle Korea's excellence, <strong style="color:#fff"></strong> to keep Philippine businesses pest-free.</p>
+        <p class="section-body">Delivering proactive pest control through Integrated Pest Management, disinfection, and pest-proofing.</p>
+        <p class="section-body">Backed by Pharmcle Korea's excellence, to keep Philippine businesses pest-free.</p>
 
         <div class="about-highlight">
           <div class="about-highlight-icon">
@@ -1183,7 +1184,7 @@ footer {
       <!-- ── Left: company info ── -->
       <div class="contact-info-side reveal">
         <p class="contact-eyebrow">Get In Touch</p>
-        <h2 class="contact-title">Lets Our Zappers<br><span class="hl">Solve your Problems</span></h2>
+        <h2 class="contact-title">Let Our Zappers<br><span class="hl">Solve your Problems</span></h2>
         <p class="contact-lead">Reach out and we'll take care of everything. Contact Zaps Now — no commitment required.</p>
 
         <div class="info-cards">

@@ -2,8 +2,8 @@
 nav{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,48px);background:var(--white);border-bottom:1px solid var(--border);transition:box-shadow 0.3s ease;position:relative;z-index:1001}
 nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .nav-brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
-.nav-zaps-logo{display:flex;align-items:center;height:76px}
-.nav-zaps-logo img{height:76px;width:auto;object-fit:contain;display:block}
+.nav-zaps-logo{display:flex;align-items:center;height:126px}
+.nav-zaps-logo img{height:126px;width:auto;object-fit:contain;display:block}
 .nav-pharmcle-pill{display:flex;align-items:center;-webkit-tap-highlight-color:transparent}
 .nav-pharmcle-pill img{height:65px;width:auto;object-fit:contain}
 .nav-links{display:none;align-items:center;gap:32px;list-style:none}
@@ -44,4 +44,4 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .sidebar-foot a:hover{background:var(--accent-2)}
 .sidebar-foot-tag{font-size:0.7rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:10px;letter-spacing:0.5px}
 @media(min-width:900px){.nav-links{display:flex}.mobile-menu-btn{display:none!important}.nav-sidebar,.nav-overlay{display:none!important}}
-@media(max-width:899px){.mobile-menu-btn{display:flex!important}.nav-links{display:none!important}:root{--nav-h:72px}.nav-zaps-logo,.nav-zaps-logo img{height:52px}.nav-pharmcle-pill img{height:45px}}
+@media(max-width:899px){.mobile-menu-btn{display:flex!important}.nav-links{display:none!important}:root{--nav-h:72px}.nav-zaps-logo,.nav-zaps-logo img{height:64px}.nav-pharmcle-pill img{height:45px}}

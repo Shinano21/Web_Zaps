@@ -126,7 +126,7 @@ button { font-family: inherit; cursor: pointer; }
   display: flex; justify-content: center; margin-bottom: 16px;
 }
 .hero-logo img {
-  height: 110px; width: auto;
+  height: 115px; width: auto;
   filter: brightness(0) invert(1) drop-shadow(0 4px 18px rgba(0,0,0,0.5));
   animation: logoFadeIn 0.8s var(--ease-out) both;
 }
@@ -831,7 +831,7 @@ footer {
   padding: clamp(40px, 6vw, 64px) clamp(16px, 4vw, 48px) 24px;
 }
 .footer-inner {
-  max-width: none; margin: 0;
+  max-width: var(--max-w); margin: 0 auto;
   display: grid; grid-template-columns: 1fr;
   gap: 40px; text-align: left;
 }
@@ -865,7 +865,7 @@ footer {
 .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
 .footer-links a:hover { color: var(--white); }
 .footer-bottom {
-  max-width: none; margin: 40px 0 0;
+  max-width: var(--max-w); margin: 40px auto 0;
   padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.10);
   display: flex; flex-wrap: wrap; gap: 12px;
   align-items: center; justify-content: space-between;

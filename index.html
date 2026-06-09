@@ -234,6 +234,7 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 899px) {
   #hero { grid-template-columns: 1fr; height: auto; }
   .hero-image-side { height: 45vh; }
+  .hero-image-side::after { background: linear-gradient(to bottom, transparent 50%, var(--blue-deep) 100%); }
   .hero-content-side { padding: 40px 20px 60px; }
   .hero-headline { font-size: clamp(32px, 8vw, 48px); }
   .hero-korea-badge { display: none; }

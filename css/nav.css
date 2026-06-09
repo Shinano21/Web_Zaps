@@ -2,6 +2,7 @@
 nav{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,48px);background:var(--white);border-bottom:1px solid var(--border);transition:box-shadow 0.3s ease;position:relative;z-index:1001}
 nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,0.09)}
 .nav-brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.nav-brand-divider{width:1px;height:40px;background:var(--border);flex-shrink:0}
 .nav-zaps-logo{display:flex;align-items:center;height:76px}
 .nav-zaps-logo img{height:76px;width:auto;object-fit:contain;display:block}
 .nav-pharmcle-pill{display:flex;align-items:center;-webkit-tap-highlight-color:transparent}

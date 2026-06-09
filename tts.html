@@ -96,6 +96,8 @@ button{font-family:inherit;cursor:pointer}
 .form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234a5568' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;background-color:var(--surface);cursor:pointer}
 .form-group select option{background:var(--white);color:var(--ink)}
 .form-group input::placeholder,.form-group textarea::placeholder{color:var(--ink-muted);opacity:0.5}
+.quick-fill-btn{background:#0097E0;color:#fff;border:none;padding:8px 16px;border-radius:var(--r-sm);font-family:'Poppins',sans-serif;font-size:0.75rem;font-weight:600;cursor:pointer;transition:background 0.2s;margin-bottom:8px;display:inline-flex;align-items:center;gap:6px}
+.quick-fill-btn:hover{background:#5bb8f5}
 .submit-btn{width:100%;background:var(--accent);color:var(--white);border:none;padding:15px;border-radius:var(--r-md);font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background 0.25s,transform 0.2s,box-shadow 0.25s;box-shadow:0 6px 24px rgba(0,61,125,0.3);display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px}
 .submit-btn:hover{background:var(--accent-2);transform:translateY(-1px);box-shadow:0 10px 32px rgba(0,61,125,0.38)}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity 0.65s var(--ease),transform 0.65s var(--ease)}
@@ -288,7 +290,9 @@ footer {
               <option>Cockroaches</option><option>Flying Pest</option><option>Rodents</option><option>Bed Bugs</option><option>Ants</option><option>Other</option>
             </select>
           </div>
-          <div class="form-group"><label for="f-message">Message</label><textarea id="f-message" name="Message" placeholder="Describe your termite concern, affected areas, structure type…" rows="4"></textarea></div>
+          <div class="form-group"><label for="f-message">Message</label>
+            <button type="button" class="quick-fill-btn" id="quick-fill-tts">Quick Fill — Action Taken Report</button>
+            <textarea id="f-message" name="Message" placeholder="Describe your termite concern, affected areas, structure type…" rows="4"></textarea></div>
           <button class="submit-btn" type="submit">Request a Zapper <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></button>
         </form>
       </div>
@@ -301,6 +305,8 @@ footer {
 <script>
 (function(){
 'use strict';
+var qfBtn=document.getElementById('quick-fill-tts');
+if(qfBtn){qfBtn.addEventListener('click',function(){var ta=document.getElementById('f-message');if(ta){ta.value="ACTION TAKEN — Termite Treatment\n\n1. Inspection & Detection\nConducted a thorough site inspection to identify active termite infestation, mud tubes, damaged wood, and entry points. Used a termite ultrasonic detector and termite camera to confirm activity within walls, flooring, and structural members.\n\n2. Drilling\nDrilled injection holes at regular intervals (approximately every 30–40 cm) along the perimeter walls, flooring joints, and identified infested areas. Holes were drilled through concrete slabs, tile grout lines, and the base of walls to reach the soil and void areas where termites travel.\n\n3. Soil Treatment (Soil Poisoning / Drenching)\nApplied termiticide solution into the drilled holes and surrounding soil to create a continuous chemical barrier. The treatment saturated the soil beneath and around the structure to eliminate subterranean termite colonies and prevent re-entry.\n\n4. Injection & Foaming\nInjected termiticide directly into active galleries, wall voids, and mud tubes. Applied foaming treatment in hollow voids and hard-to-reach areas to ensure full coverage where liquid alone could not penetrate.\n\n5. Sealing\nSealed all drilled holes with appropriate filler to restore the surface and prevent moisture entry.\n\n6. Recommendations / Monitoring\nAdvised the client to monitor treated areas and report any new signs of activity. Scheduled follow-up inspection under the warranty period.";ta.style.height='auto';ta.style.height=ta.scrollHeight+'px'}})}
 document.addEventListener('DOMContentLoaded',function(){fetch('footer.html').then(function(r){return r.text()}).then(function(html){var el=document.getElementById('site-footer');if(el)el.innerHTML=html}).catch(function(){})});
 const bar=document.getElementById('progress-bar');
 function updateProgress(){const s=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(d>0?(s/d)*100:0)+'%'}

@@ -75,8 +75,9 @@ button { font-family: inherit; cursor: pointer; }
    HERO — Split layout
 ══════════════════════════════ */
 #hero {
-  min-height: 100svh;
-  padding-top: var(--nav-h);
+  height: 100svh;
+  margin-top: var(--nav-h);
+  height: calc(100svh - var(--nav-h));
   background: var(--blue-deep);
   position: relative;
   display: grid;
@@ -224,7 +225,7 @@ button { font-family: inherit; cursor: pointer; }
 @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 
 @media (max-width: 899px) {
-  #hero { grid-template-columns: 1fr; min-height: auto; }
+  #hero { grid-template-columns: 1fr; height: auto; }
   .hero-image-side { height: 45vh; }
   .hero-content-side { padding: 40px 20px 60px; }
   .hero-headline { font-size: clamp(32px, 8vw, 48px); }

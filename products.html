@@ -67,22 +67,33 @@ button{font-family:inherit;cursor:pointer}
 .product-card-name{font-size:1.05rem;font-weight:800;color:var(--white);letter-spacing:-0.2px}
 .product-card-num{font-size:0.7rem;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.45);text-transform:uppercase;flex-shrink:0}
 .product-card-body{display:grid;grid-template-columns:1fr;flex:1}
-@media(min-width:480px){.product-card-body{grid-template-columns:160px 1fr}}
+@media(min-width:540px){.product-card-body{grid-template-columns:160px 1fr}}
 .product-img-wrap{
   background:linear-gradient(135deg,#f0f6ff 0%,#e6f0ff 100%);
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  padding:28px 20px;min-height:170px;
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(16px,4vw,28px) 20px;min-height:160px;
 }
-.product-img-wrap img{max-height:150px;width:auto;max-width:130px;object-fit:contain;filter:drop-shadow(0 6px 20px rgba(0,61,125,0.15))}
-.product-content{padding:24px;display:flex;flex-direction:column;justify-content:center}
-.product-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-.product-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:rgba(0,61,125,0.08);color:var(--accent);border:1px solid rgba(0,61,125,0.15)}
+.product-img-wrap img{max-height:140px;width:auto;max-width:120px;object-fit:contain;filter:drop-shadow(0 6px 20px rgba(0,61,125,0.15))}
+.product-content{padding:clamp(14px,4vw,24px);display:flex;flex-direction:column;justify-content:center}
+.product-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.product-tag{font-size:0.62rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:rgba(0,61,125,0.08);color:var(--accent);border:1px solid rgba(0,61,125,0.15);white-space:nowrap}
 .product-features{list-style:none;display:flex;flex-direction:column;gap:8px}
-.product-features li{position:relative;padding-left:15px;font-size:0.85rem;color:var(--ink-muted);line-height:1.6;text-align:left}
-.product-features li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.product-features li{position:relative;padding-left:14px;font-size:0.82rem;color:var(--ink-muted);line-height:1.55;text-align:left}
+.product-features li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
 .product-features li strong{color:var(--ink);font-weight:700}
-.product-features li .hi{color:var(--ink);font-weight:700;white-space:nowrap}
-.product-features li .days{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+.product-features li .hi{color:var(--ink);font-weight:700}
+.product-features li .days{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+@media(max-width:539px){
+  .product-card{border-radius:var(--r-lg)}
+  .product-card-head{padding:12px 16px}
+  .product-card-name{font-size:0.95rem}
+  .product-img-wrap{min-height:140px;padding:14px}
+  .product-img-wrap img{max-height:120px;max-width:100px}
+  .product-content{padding:14px 16px}
+  .product-tags{gap:4px;margin-bottom:10px}
+  .product-tag{font-size:0.6rem;padding:3px 9px}
+  .product-features li{font-size:0.8rem;padding-left:13px}
+}
 
 /* ── CTA Band ── */
 .cta-band{

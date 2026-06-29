@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "webzaps1",
-  "compatibility_date": "2026-06-17",
+  "compatibility_date": "2026-06-29",
   "observability": {
     "enabled": true
   },

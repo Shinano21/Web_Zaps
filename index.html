@@ -1496,7 +1496,7 @@ footer {
       .then(function(r) { return r.text(); })
       .then(function(html) {
         var el = document.getElementById('site-footer');
-        if (el) el.outerHTML = html;
+        if (el) { el.insertAdjacentHTML('beforebegin',html);el.remove(); }
       })
       .catch(function() {});
   }
@@ -1507,7 +1507,7 @@ footer {
       .then(function(html) {
         var el = document.getElementById('nav-placeholder');
         if (el) {
-          el.outerHTML = html;
+          el.insertAdjacentHTML('beforebegin',html);el.remove();
           setupNav();
           var page = location.pathname.split('/').pop() || 'index.html';
           if (page === '' || page === 'index.html') {

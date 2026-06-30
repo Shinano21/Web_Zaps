@@ -317,7 +317,7 @@ function loadNav(){
     .then(function(html){
       var el=document.getElementById('nav-placeholder');
       if(el){
-        el.outerHTML=html;
+        el.insertAdjacentHTML('beforebegin',html);el.remove();
         setupNav();
         document.querySelectorAll('[data-nav="services"]').forEach(function(a){a.classList.add('active')});
       }
